@@ -21,8 +21,8 @@ function memify(path, text, callback) {
 	gm(path)
 	.fill("white")
 	.stroke("black")
-	.strokeWidth(3)
-	.font("/usr/share/fonts/truetype/msttcorefonts/Verdana_Bold.ttf")
+	.strokeWidth(1)
+	.font("/usr/share/fonts/truetype/msttcorefonts/Arial_Bold.ttf")
 	.fontSize(50)
 	.drawText(0, 0, text, "Center")
 	.write(path, function (err) {
@@ -44,7 +44,8 @@ app.get("/memegen", function(req,res){
 app.post("/memegen", function(req, res){
 	// var imageUrl = req.body.url;
 	// console.log("IMAGE URL: " + imageUrl);
-	var fileName = new Date().valueOf().toString() + ".png"; //path.parse(url.parse(imageUrl).pathname).base;
+	var id = new Date().valueOf().toString();
+	var fileName = id + ".png"; //path.parse(url.parse(imageUrl).pathname).base;
 	console.log(fileName);
 	var readStream = fs.createReadStream(__dirname + "/public/img/blank.png");
 	var writeStream = fs.createWriteStream(__dirname + "/public/img/" + fileName);
@@ -54,14 +55,23 @@ app.post("/memegen", function(req, res){
 	// 	//res.sendFile(__dirname + "/public/img/" + fileName);
 	// });
 	writeStream.on("close", function(err){
+		if (err) {
+			console.error("Error: " + err);
+			res.status(500).send({Error: err});
+		}
 		memify(__dirname + "/public/img/" + fileName, req.body.text, function(err){
-			res.sendFile(__dirname + "/public/img/" + fileName);
+			//res.sendFile(__dirname + "/public/img/" + fileName);
+			if (err) {
+				console.error("Error: " + err);
+				res.status(500).send({Error: err});
+			}
+			res.redirect("/memegen/preview/" + id + "/" + req.body.text);
 		});
 	})
 });
 
 function getGoogleImages(query, callback) {
-	client.search(query, {size: 'huge'}).then(function(data){
+	client.search(query, {size: 'medium'}).then(function(data){
 		callback(data);
 	});
 }

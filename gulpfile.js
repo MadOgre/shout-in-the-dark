@@ -42,7 +42,7 @@ gulp.task('sass', function () {
         }))
         .pipe(sass({
             includePaths: ['scss'],
-            outputStyle: "compressed",
+            // outputStyle: "compressed",
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))

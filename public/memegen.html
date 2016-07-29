@@ -3,12 +3,16 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Generate meme</title>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-	<form action="/memegen", method="post">
-<!-- 		Enter image url: <input type="url" name="url"><br> -->
-		Enter text: <input type="text" name="text"><br>
-		<input type="submit" name="submit">
-	</form>
+	<div class="form-wrapper">
+		<h3>Let's Get Started</h3>
+		<form class="glow" action="/memegen", method="post">
+	<!-- 		Enter image url: <input type="url" name="url"><br> -->
+			<input class="glow" type="text" placeholder="Enter Your Text" name="text">
+			<input type="submit" name="submit">
+		</form>
+	</div>
 </body>
 </html>

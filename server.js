@@ -9,6 +9,12 @@ var fs = require("fs");
 var url = require("url");
 var path = require("path");
 
+var googleImages = require('google-images');
+var client = googleImages('002933971227871447216:skeh5hd6yhg', 'AIzaSyDiuzKEP4ZEAT9TN5Rd5_ZZ_fuuMlDF7EA');
+
+app.set("view engine", "ejs");
+app.set("views", "views");
+
 app.use(bp.urlencoded({extended: true}));
 
 function memify(path, text, callback) {
@@ -36,20 +42,38 @@ app.get("/memegen", function(req,res){
 });
 
 app.post("/memegen", function(req, res){
-	var imageUrl = req.body.url;
-	console.log("IMAGE URL: " + imageUrl);
-	var fileName = path.parse(url.parse(imageUrl).pathname).base;
+	// var imageUrl = req.body.url;
+	// console.log("IMAGE URL: " + imageUrl);
+	var fileName = new Date().valueOf().toString() + ".png"; //path.parse(url.parse(imageUrl).pathname).base;
+	console.log(fileName);
+	var readStream = fs.createReadStream(__dirname + "/public/img/blank.png");
 	var writeStream = fs.createWriteStream(__dirname + "/public/img/" + fileName);
-	http.get(imageUrl, function(data){
-		data.pipe(writeStream);
-		//res.sendFile(__dirname + "/public/img/" + fileName);
-	});
+	readStream.pipe(writeStream);
+	// http.get(imageUrl, function(data){
+	// 	data.pipe(writeStream);
+	// 	//res.sendFile(__dirname + "/public/img/" + fileName);
+	// });
 	writeStream.on("close", function(err){
 		memify(__dirname + "/public/img/" + fileName, req.body.text, function(err){
 			res.sendFile(__dirname + "/public/img/" + fileName);
 		});
 	})
 });
+
+function getGoogleImages(query, callback) {
+	client.search(query, {size: 'huge'}).then(function(data){
+		callback(data);
+	});
+}
+
+app.get("/memegen/preview/:id/:text", function(req, res){
+	getGoogleImages(req.params.text, function(data){
+		//res.json(data);
+		res.render("preview", {main_file_url: "/img/" + req.params.id + ".png",
+													 google_results: data});
+	})
+});
+
 
 app.use(["/hello","/goodbye"], function(req, res){
 	res.sendFile(__dirname + "/public/index.html");

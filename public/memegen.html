@@ -13,7 +13,7 @@
 </head>
 <body ng-controller="Creating as create">
 	<div class="form-wrapper">
-		<h3>Let's Get Started</h3>
+		<h3>Share Your Secret</h3>
 		<form class="glow"  ng-submit="create.getImages()">
 			<input class="glow" type="text" placeholder="Enter Your Text" name="text" ng-model="create.search">
 			<input type="submit" name="submit">
@@ -27,7 +27,8 @@
 		<form class="radio-gallery">
 			<div ng-repeat="(index, image) in create.returnedImages">
 				<input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
-				<label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
+				<label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item" ng-class="{'selected' : index == create.curr}"></label>
+
 				<!-- <img  ng-src="{{image.thumb}}"> -->
 			</div>
 		</form>

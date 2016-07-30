@@ -44,6 +44,27 @@ body {
 	@include container(840px);
 }
 
+.preview-wrapper {
+  position: relative;
+  width: 640px;
+  height: 920px;
+  overflow: hidden;
+  background-color: #222; //find a pattern
+  img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*height: 920px;*/
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .photo-overlay {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
 .form-wrapper {
   background-color: $lgray;
   padding: 20px 35px;
@@ -84,6 +105,18 @@ input[type="submit"] {
   &:hover {
     background: lighten($main, 5);
     border-color: $main;
+  }
+}
+
+.gallery-wrapper {
+  input[type="radio"] {
+    display: none;
+    + label {
+      display: block;
+    }
+    &:checked + label {
+      border: 5px solid red;
+    }
   }
 }
 

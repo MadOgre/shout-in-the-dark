@@ -34,6 +34,13 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('browser-sync', ['nodemon'], function () {
 
+    var browserPath = "";
+    if (process.env.COMPUTERNAME === "PHILLAPTOP") {
+        browserPath = "chrome.exe";
+    } else {
+        browserPath = "google-chrome";
+    }
+
   // for more browser-sync config options: http://www.browsersync.io/docs/options/
   browserSync({
 

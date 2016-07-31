@@ -38,7 +38,7 @@ function memify(path, text, callback) {
 	  if (err) {
 	  	callback(err);
 	  }
-	});	
+	});
 }
 
 app.use(express.static(__dirname + "/public"));

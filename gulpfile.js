@@ -1,8 +1,12 @@
 'use strict';
 
-var gulp = require('gulp');
+var gulp        = require('gulp');
 var browserSync = require('browser-sync');
-var nodemon = require('gulp-nodemon');
+var nodemon     = require('gulp-nodemon');
+var sass        = require('gulp-sass');
+var prefix      = require('gulp-autoprefixer');
+var plumber     = require('gulp-plumber');
+var notify      = require('gulp-notify');
 
 // we'd need a slight delay to reload browsers
 // connected to browser-sync after restarting nodemon
@@ -64,8 +68,28 @@ gulp.task('js',  function () {
 });
 
 gulp.task('css', function () {
-  return gulp.src('public/**/*.css')
-    .pipe(browserSync.reload({ stream: true }));
+  // return gulp.src('public/**/*.css')
+  //   .pipe(browserSync.reload({ stream: true }));
+    return gulp.src('public/scss/main.scss')
+        .pipe(plumber({
+            errorHandler: function(error) {
+                notify().write({
+                    title: 'Gulp: SCSS',
+                    message: error.message
+                });
+                console.log(error.message);
+                browserSync.notify(error.message);
+                this.emit("end");
+            }
+        }))
+        .pipe(sass({
+            includePaths: ['scss'],
+            // outputStyle: "compressed",
+            onError: browserSync.notify
+        }))
+        .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
+        .pipe(browserSync.reload({stream:true}))
+        .pipe(gulp.dest('public/css'));
 })
 
 gulp.task('bs-reload', function () {
@@ -74,6 +98,6 @@ gulp.task('bs-reload', function () {
 
 gulp.task('default', ['browser-sync'], function () {
   gulp.watch('public/**/*.js',   ['js', browserSync.reload]);
-  gulp.watch('public/**/*.css',  ['css']);
+  gulp.watch('public/**/*.scss',  ['css']);
   gulp.watch('public/**/*.html', ['bs-reload']);
 });

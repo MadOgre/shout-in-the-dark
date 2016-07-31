@@ -37,27 +37,30 @@ body {
   box-sizing: border-box;
 }
 
-// html {
-// 	background-color: #BDBDBD;
-// }
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
 
 .wrapper {
 	@include container(840px);
 }
 
-/**Previewe Wrapper **/
+.container {
+  @include container(1120px);
+}
+
+/**Preview Wrapper **/
 .preview-wrapper {
   margin: 5px 10px;
   position: relative;
-  width: 640px;
-  height: 920px;
+  width: 320px;
+  height: 460px;
   overflow: hidden;
   background-color: #222; //find a pattern
   img{
     position: absolute;
     left: 0;
     top: 0;
-    /*height: 920px;*/
     min-height: 100%;
     min-width: 100%;
   }
@@ -90,7 +93,7 @@ input[type="text"] {
   padding: 10px 15px;
   border: solid 3px #c9c9c9;
   transition: border 0.3s;
-  font-family: "Raleway", Tahoma, sans-serif;
+  font-family: $raleway;
   font-size: 20px;
 }
 input[type="text"]:focus,
@@ -104,7 +107,7 @@ input[type="submit"] {
   background: $main;
   color: white;
   border: 3px solid darken($main, 5);
-  font-family: "Raleway", Tahoma, sans-serif;
+  font-family: $raleway;
   font-size: 20px;
   &:hover {
     background: lighten($main, 5);

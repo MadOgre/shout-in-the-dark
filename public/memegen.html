@@ -2,18 +2,12 @@
 <html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
-	<title>Generate meme</title>
+	<title>Share Your Secrets</title>
   <link rel="stylesheet" href="/css/main.css">
-
-	<script src="https://code.angularjs.org/1.5.5/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
-	<script src="js/app.js"></script>
-	<script src="js/creating.js"></script>
 </head>
 <body ng-controller="Creating as create">
 	<div class="form-wrapper">
-		<h3>Share Your Secret</h3>
+		<h3>Share Your Secrets</h3>
 		<form class="glow"  ng-submit="create.getImages()">
 			<input class="glow" type="text" placeholder="Enter Your Text" name="text" ng-model="create.search">
 			<input type="submit" name="submit">
@@ -28,11 +22,13 @@
 			<div ng-repeat="(index, image) in create.returnedImages">
 				<input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
 				<label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item" ng-class="{'selected' : index == create.curr}"></label>
-
-				<!-- <img  ng-src="{{image.thumb}}"> -->
 			</div>
 		</form>
 	</div>
 
+	<script src="https://code.angularjs.org/1.5.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/creating.js"></script>
 </body>
 </html>

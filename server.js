@@ -23,10 +23,6 @@ app.use(express.static(__dirname + "/public"));
 app.use("/preview", require(__dirname + "/controllers/preview_controller.js"));
 //app.use("/shout", require(__dirname + "/controllers/shout_controller.js"));
 
-app.get("/", function(req,res){
-	res.sendFile(__dirname + "/public/memegen.html");
-});
-
 //default route redirects to root
 app.use("*", function(req, res){
 	res.redirect("/");

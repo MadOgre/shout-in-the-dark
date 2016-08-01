@@ -1,4 +1,5 @@
 .gallery-wrapper {
+  user-select: none;
   @include container;
   @include span(3 of 5);
   margin-top: 5px;

@@ -1,6 +1,6 @@
 {
-  "name": "whisper2",
-  "version": "0.0.2",
+  "name": "shout-in-the-dark",
+  "version": "0.1.0",
   "description": "Messaging App",
   "main": "server.js",
   "scripts": {
@@ -13,8 +13,7 @@
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "gm": "^1.22.0",
-    "google-images": "^1.0.0",
-    "susy": "^2.2.12"
+    "google-images": "^1.0.0"
   },
   "devDependencies": {
     "browser-sync": "^2.13.0",
@@ -24,6 +23,7 @@
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "susy": "^2.2.12"
   }
 }

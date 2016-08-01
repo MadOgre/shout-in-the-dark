@@ -1,0 +1,7 @@
+.wrapper {
+	@include container(840px);
+}
+
+.container {
+  @include container(1120px);
+}

@@ -1,0 +1,38 @@
+.gallery-wrapper {
+  @include container;
+  @include span(3 of 5);
+  margin-top: 5px;
+  width: 780px;
+  position: relative;
+  input[type="radio"] {
+    display: none;
+    + label {
+      height: $img;
+      img {
+        height: $img;
+        width: auto;
+      }
+    }
+    &:checked + label {
+
+    }
+  }
+  .img-wrapper {
+    float: left;
+    height: $img;
+    width: $img;
+    overflow: hidden;
+    margin: 0 5px 10px 5px;
+    border: $lborder;
+    transition: border 0.3s;
+  }
+  .img-wrapper-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 672px;
+  }
+}
+.selected {
+  border: $dborder !important;
+}

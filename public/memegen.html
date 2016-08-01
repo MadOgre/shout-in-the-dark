@@ -17,17 +17,22 @@
 			<input type="submit" name="submit">
 		</form>
 	</div>
-	<div class="preview-wrapper" ng-if="create.canPreview">
-		<img class="photo-overlay" ng-src="{{create.returnedImages[create.curr].full}}">
-		<img class="text-image" ng-src="{{create.transImg}}">
-	</div>
-	<div class="gallery-wrapper">
-		<form class="radio-gallery">
-			<div ng-repeat="(index, image) in create.returnedImages">
-				<input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
-				<label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item" ng-class="{'selected' : index == create.curr}"></label>
-			</div>
-		</form>
+	<div class="container">
+		<div class="preview-wrapper" ng-if="create.canPreview">
+			<img class="photo-overlay" ng-src="{{create.returnedImages[create.curr].full}}">
+			<img class="text-image" ng-src="{{create.transImg}}">
+		</div>
+		<div class="gallery-wrapper">
+			<div class="img-wrapper-wrapper">
+			<form class="radio-gallery">
+				<div class="img-wrapper" ng-repeat="(index, image) in create.returnedImages"  ng-class="{'selected' : index == create.curr}">
+					<input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
+					<label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
+				</div>
+			</form>
+		</div>
+		<div class="clearfix"></div>
+		</div>
 	</div>
 </body>
 </html>

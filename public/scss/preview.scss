@@ -1,0 +1,26 @@
+.preview-wrapper {
+  @include container;
+  @include span(2 of 5);
+  margin: 5px 10px;
+  position: relative;
+  width: 320px;
+  height: 460px;
+  overflow: hidden;
+  background-color: #222; //find a pattern
+  img{
+    position: absolute;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .photo-overlay {
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  .text-image {
+    width: 320px;
+    height: 460px;
+  }
+}

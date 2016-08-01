@@ -3,6 +3,9 @@ $main: #196db6;
 $lgray: #f5f5f5;
 $mgray: #969696;
 $dgray: #333;
+$img: 124px;
+$lborder: 3px solid #c9c9c9;
+$dborder: solid 3px $mgray;
 
 $susy: (
   debug: (
@@ -11,7 +14,9 @@ $susy: (
     output: overlay,
     toggle: top right,
   ),
-  gutter-position: split,
+  gutter-position: inside,
+  column-width: 25%,
+  gutters: 0
 );
 
 @import "node_modules/susy/sass/susy";
@@ -37,10 +42,16 @@ body {
   box-sizing: border-box;
 }
 
+.clearfix {
+  clear: both;
+}
+
+/**Angular ngCloak **/
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
 
+/** Susy Containers **/
 .wrapper {
 	@include container(840px);
 }
@@ -51,6 +62,8 @@ body {
 
 /**Preview Wrapper **/
 .preview-wrapper {
+  @include container;
+  @include span(2 of 5);
   margin: 5px 10px;
   position: relative;
   width: 320px;
@@ -68,6 +81,10 @@ body {
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+  }
+  .text-image {
+    width: 320px;
+    height: 460px;
   }
 }
 
@@ -99,7 +116,7 @@ input[type="text"] {
 input[type="text"]:focus,
 input[type="text"].focus {
   outline: none;
-  border: solid 3px $mgray;
+  border:  $dborder;
 }
 
 input[type="submit"] {
@@ -117,24 +134,42 @@ input[type="submit"] {
 
 /** Gallery Wrapper **/
 .gallery-wrapper {
+  @include container;
+  @include span(3 of 5);
+  margin-top: 5px;
+  width: 780px;
+  position: relative;
   input[type="radio"] {
     display: none;
     + label {
-
+      height: $img;
       img {
-        @include span(20%);
-        height: 100px;
+        height: $img;
         width: auto;
-        margin: 5px 10px;
       }
     }
     &:checked + label {
 
     }
   }
+  .img-wrapper {
+    float: left;
+    height: $img;
+    width: $img;
+    overflow: hidden;
+    margin: 0 5px 10px 5px;
+    border: $lborder;
+    transition: border 0.3s;
+  }
+  .img-wrapper-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 672px;
+  }
 }
 .selected {
-  box-shadow: 0px 2px 5px $dgray;
+  border: $dborder !important;
 }
 
 /** Cards **/

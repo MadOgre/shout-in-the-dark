@@ -24,11 +24,12 @@
 		</div>
 		<div class="gallery-wrapper">
 			<div class="img-wrapper-wrapper">
-			<form class="radio-gallery">
+			<form class="radio-gallery" ng-submit="create.submitShout()">
 				<div class="img-wrapper" ng-repeat="(index, image) in create.returnedImages"  ng-class="{'selected' : index == create.curr}">
 					<input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
 					<label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
 				</div>
+				<input type="submit" name="submit">
 			</form>
 		</div>
 		<div class="clearfix"></div>

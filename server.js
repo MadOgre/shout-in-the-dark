@@ -3,6 +3,16 @@ var app = express();
 
 var bp = require("body-parser");
 
+var config = require(__dirname + "/config.js");
+
+//connect to the database
+var mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+mongoose.connect(config.database_url);
+
+//connect the model
+var Shout = require("./models/shout.js");
+
 //fixing the cross origin request error
 var cors = require("cors");
 
@@ -21,7 +31,7 @@ app.use(express.static(__dirname + "/public"));
 
 //connecting controllers
 app.use("/preview", require(__dirname + "/controllers/preview_controller.js"));
-//app.use("/shout", require(__dirname + "/controllers/shout_controller.js"));
+app.use("/shout", require(__dirname + "/controllers/shout_controller.js"));
 
 //default route redirects to root
 app.use("*", function(req, res){

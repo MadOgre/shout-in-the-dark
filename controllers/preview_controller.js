@@ -1,10 +1,7 @@
 var express = require("express");
 var router = express.Router();
 
-var http = require("http");
 var fs = require("fs");
-var url = require("url");
-var path = require("path");
 
 var getImages = require(__dirname + "/../helpers/get_images.js");
 var memify = require(__dirname + "/../helpers/memify.js");
@@ -43,7 +40,9 @@ router.get("/", function(req, res){
 							res.json(response);
 							setTimeout(function(){
 								fs.unlink(__dirname + "/../public/img/" + fileName, function(err){
-									return console.error(err);
+									if (err) {
+										return console.error(err);
+									}
 								});
 							}, 5000);
 						}

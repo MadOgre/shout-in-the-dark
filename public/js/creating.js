@@ -22,6 +22,10 @@
           console.warn(response);
         });
     }
+
+    vm.submitShout = function() {
+      alert("Yay!");
+    }
   }
 
 }());

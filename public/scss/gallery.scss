@@ -9,6 +9,7 @@
     display: none;
     + label {
       height: $img;
+      cursor: pointer;
       img {
         height: $img;
         width: auto;

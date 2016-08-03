@@ -184,7 +184,8 @@ body {
   .gallery-wrapper input[type="radio"] {
     display: none; }
     .gallery-wrapper input[type="radio"] + label {
-      height: 124px; }
+      height: 124px;
+      cursor: pointer; }
       .gallery-wrapper input[type="radio"] + label img {
         height: 124px;
         width: auto; }

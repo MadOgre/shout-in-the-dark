@@ -1,10 +1,11 @@
 (function() {
   'use strict';
-  angular.module('app').controller('Creating', ['$http', Creating]);
+  angular.module('app').controller('Creating', ['$http', '$location', Creating]);
 
-  function Creating($http) {
+  function Creating($http, $location) {
     var vm = this;
     vm.canPreview = false;
+    vm.isLoading = false;
     vm.returnedImages = [];
     vm.search = "";
     vm.transImg = "";
@@ -25,6 +26,34 @@
 
     vm.submitShout = function() {
       alert("Yay!");
+    }
+
+    vm.postShout = function() {
+      vm.isLoading = true;
+      $http({
+        method: 'POST',
+        dataType: 'jsonp',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        url: '/shout',
+        transformRequest: function(obj) {
+          var str = [];
+          for(var p in obj)
+          str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+          return str.join("&");
+      },
+      data: {bodyText: vm.search, imageUrl: vm.returnedImages[vm.curr].full}
+      }).then(function successCallback(response) {
+          vm.isLoading = false;
+          if(response.status == 200) {
+            $location.path('/');
+          }
+        }, function errorCallback(response) {
+          vm.isLoading = false;
+          alert('something went wrong');
+          console.warn(response);
+        });
     }
   }
 

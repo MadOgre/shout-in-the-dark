@@ -335,7 +335,8 @@ input[type="submit"] {
   padding: 0;
   border-top: 70px solid transparent;
   border-bottom: 70px solid transparent;
-  border-left: 70px solid #6388ff; }
+  border-left: 70px solid #6388ff;
+  z-index: 9; }
 
 .corner-plus {
   cursor: pointer;

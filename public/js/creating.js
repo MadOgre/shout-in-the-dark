@@ -32,7 +32,6 @@
       vm.isLoading = true;
       $http({
         method: 'POST',
-        dataType: 'jsonp',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },

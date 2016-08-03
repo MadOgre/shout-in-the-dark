@@ -312,3 +312,38 @@ input[type="submit"] {
 .banner {
   width: 340px;
   margin: 10px auto; }
+
+.nav {
+  position: absolute;
+  display: inline;
+  top: 20px;
+  right: 30px; }
+  .nav a {
+    padding: 0px 10px;
+    font-family: "Raleway", tahoma, sans-serif;
+    text-decoration: none;
+    color: #6388ff; }
+
+.corner {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  margin-top: -70px;
+  padding: 0;
+  border-top: 70px solid transparent;
+  border-bottom: 70px solid transparent;
+  border-left: 70px solid #6388ff; }
+
+.corner-plus {
+  cursor: pointer;
+  position: absolute;
+  top: -3px;
+  left: 12px;
+  color: white;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: "Raleway", tahoma, sans-serif;
+  z-index: 10; }

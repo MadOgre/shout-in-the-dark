@@ -12,7 +12,11 @@
         templateUrl: "/partials/create.html",
         controller: "Creating",
         controllerAs: "create"
+      })
+      .otherwise({
+        redirectTo: '/'
       });
+
 
     $locationProvider.html5Mode(true).hashPrefix('!');
   }]);

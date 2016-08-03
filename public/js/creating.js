@@ -13,7 +13,7 @@
     vm.getImages = function() {
       $http({
         method: 'GET',
-        url: 'preview?q=' + vm.search
+        url: '/preview?q=' + vm.search
       }).then(function successCallback(response) {
           vm.returnedImages = response.data.images;
           vm.transImg = response.data.transparency;

@@ -21,7 +21,6 @@ $susy: (
     toggle: top right,
   ),
   gutter-position: inside,
-  column-width: 25%,
   gutters: 0
 );
 
@@ -38,3 +37,4 @@ $raleway: 'Raleway', tahoma, sans-serif;
 @import "preview.scss";
 @import "gallery.scss";
 @import "form.scss";
+@import "shouts.scss";

@@ -56,3 +56,7 @@ jspm_packages
 
 # app temp files
 *.png
+*.jpg
+*.gif
+
+!public/img/transparency.png

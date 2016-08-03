@@ -1,1 +1,8 @@
-<h1>Testing Main Page</h1>
+<div class="container">
+  <div class="shout-card" ng-repeat="(index, shout) in main.shouts">
+    <div class="clearfix" ng-if="index % 2 == 0"></div>
+    <img  ng-src="shout.imagePath" class="shout-card-top" />
+    <div class="shout-card-bottom"><p>{{index}}</p></div>
+  </div>
+  <div class="clearfix"></div>
+</div>

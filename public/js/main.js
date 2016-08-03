@@ -17,7 +17,6 @@
           console.warn(response);
         });
     }
-
     vm.getShouts();
   }
 }());

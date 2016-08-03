@@ -1,22 +1,24 @@
 .form-wrapper {
-  margin-top: 20px;
+  margin-top: 10px;
   background-color: $lgray;
-  padding: 20px 35px;
+  padding: 15px 20px;
   text-align: center;
   h3 {
     color: $mgray;
     font-family: $raleway;
     font-size: 28px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-  }
-  input {
-    margin-top: 5px;
+    padding-top: 0;
+    margin-top: 0px;
     margin-bottom: 5px;
   }
 }
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 input[type="text"] {
-  width: 50vw;
+  width: 700px;
   padding: 10px 15px;
   border: solid 3px #c9c9c9;
   transition: border 0.3s;
@@ -40,5 +42,11 @@ input[type="submit"] {
   &:hover {
     background: lighten($main, 5);
     border-color: $main;
+  }
+}
+
+@media (max-width: 768px) {
+  input[type="text"] {
+    width: 70vw;
   }
 }

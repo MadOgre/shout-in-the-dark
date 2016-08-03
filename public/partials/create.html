@@ -1,5 +1,5 @@
 <div class="form-wrapper">
-  <h3>Share Your Secrets</h3>
+  <h3 ng-if="!create.canPreview">Share Your Secrets</h3>
   <form class="glow"  ng-submit="create.getImages()">
     <input class="glow" type="text" placeholder="Enter Your Text" name="text" ng-model="create.search" autofocus>
     <input type="submit" name="submit" value="Next">

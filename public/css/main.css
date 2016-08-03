@@ -208,7 +208,13 @@ body {
 .selected {
   border: solid 3px #969696 !important; }
 
+.shoutsubmit {
+  display: block;
+  margin: 0px auto;
+  width: 300px; }
+
 .form-wrapper {
+  margin-top: 20px;
   background-color: #f5f5f5;
   padding: 20px 35px;
   text-align: center; }
@@ -239,14 +245,14 @@ input[type="text"].focus {
 input[type="submit"] {
   cursor: pointer;
   padding: 10px 15px;
-  background: #196db6;
+  background: #6388ff;
   color: white;
-  border: 3px solid #1660a0;
+  border: 3px solid #4a75ff;
   font-family: "Raleway", tahoma, sans-serif;
   font-size: 20px; }
   input[type="submit"]:hover {
-    background: #1c7acc;
-    border-color: #196db6; }
+    background: #7d9bff;
+    border-color: #6388ff; }
 
 .shout-card {
   float: left;
@@ -257,7 +263,7 @@ input[type="submit"] {
           box-shadow: 0px 0px 5px #969696;
   -webkit-border-radius: 5px;
           border-radius: 5px;
-  margin: 20px 120px; }
+  margin: 20px 20px; }
   .shout-card .shout-card-top {
     position: absolute;
     top: 0;
@@ -283,3 +289,10 @@ input[type="submit"] {
       font-size: 20px;
       padding: 10px 30px;
       color: red; }
+
+.banner-wrapper {
+  width: 100vw; }
+
+.banner {
+  width: 373px;
+  margin: 20px auto 5px; }

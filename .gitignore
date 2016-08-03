@@ -59,4 +59,4 @@ jspm_packages
 *.jpg
 *.gif
 
-!public/img/transparency.png
+!public/img/common

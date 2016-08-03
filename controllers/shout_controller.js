@@ -23,6 +23,7 @@ router.post("/", function(req, res){
 	var fileName = id + ".png";
 	var filePath = __dirname + "/../public/img/shouts/" + fileName;
 	var writeStream = fs.createWriteStream(filePath);
+	console.log(filePath);
 	protocol.get(req.body.imageUrl, function(res){
 		res.pipe(writeStream);
 	}).on("error", function(err){
@@ -35,7 +36,7 @@ router.post("/", function(req, res){
 			res.status(500).send({Error: err});
 			return console.error(err);
 		}
-		memify(filePath, req.body.bodyText, saveShout);		
+		memify(filePath, req.body.bodyText, saveShout);
 	}
 	function saveShout(err) {
 		if (err) {
@@ -52,7 +53,7 @@ router.post("/", function(req, res){
 			res.json({result: "fail"});
 		} else {
 			res.json({result: "success"});
-		}		
+		}
 	}
 });
 

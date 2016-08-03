@@ -35,7 +35,7 @@ app.use("/shout", require(__dirname + "/controllers/shout_controller.js"));
 
 //default route redirects to root
 app.use("*", function(req, res){
-	res.redirect("/");
+	res.sendFile(__dirname + '/public/index.html');
 });
 
 app.listen("3000");

@@ -1,16 +1,4 @@
-angular.module("myApp",['ngRoute', 'ngAnimate']);
-
-angular.module("myApp").controller("routeController",function(){
-
-});
-
-angular.module("myApp").controller("helloCtrl",function(){
-	
-});
-
-angular.module("myApp").controller("goodbyeCtrl",function(){
-	
-});
+angular.module("myApp",['ngRoute']);
 
 angular.module("myApp").config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider){
 	$routeProvider
@@ -31,4 +19,3 @@ angular.module("myApp").config(['$routeProvider', '$locationProvider', function(
 		rewriteLinks: true
 	});
 }]);
-

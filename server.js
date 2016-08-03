@@ -25,6 +25,7 @@ var morgan = require('morgan');
 app.use(cors());
 app.use(morgan('combined'));
 app.use(bp.urlencoded({extended: true}));
+app.use(bp.json());
 app.use(express.static(appRoot + '/public'));
 
 //connecting controllers

@@ -24,7 +24,6 @@ router.post('/', function(req, res){
 	var fileName = id + '.png';
 	var filePath = appRoot + '/public/img/shouts/' + fileName;
 	var writeStream = fs.createWriteStream(filePath);
-	console.log(filePath);
 	protocol.get(req.body.imageUrl, function(res){
 		res.pipe(writeStream);
 	}).on('error', function(err){

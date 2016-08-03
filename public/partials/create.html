@@ -2,7 +2,7 @@
   <h3>Share Your Secrets</h3>
   <form class="glow"  ng-submit="create.getImages()">
     <input class="glow" type="text" placeholder="Enter Your Text" name="text" ng-model="create.search" autofocus>
-    <input type="submit" name="submit">
+    <input type="submit" name="submit" value="Next">
   </form>
 </div>
 <div class="container">
@@ -17,7 +17,7 @@
         <input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
         <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
       </div>
-      <input type="submit" name="submit">
+      <input type="submit" value="Shout It Out" class="shoutsubmit" ng-if="create.canPreview">
     </form>
   </div>
   <div class="clearfix"></div>

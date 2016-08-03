@@ -45,6 +45,12 @@ input[type="submit"] {
   }
 }
 
+.remaining {
+  font-family: $raleway;
+  font-size: 12px;
+  color: $mgray;
+}
+
 @media (max-width: 768px) {
   input[type="text"] {
     width: 70vw;

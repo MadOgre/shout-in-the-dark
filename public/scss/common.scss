@@ -36,7 +36,7 @@
 }
 .corner-plus {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: -3px;
   left: 12px;
   color: white;
@@ -44,4 +44,11 @@
   font-weight: 500;
   font-family: $raleway;
   z-index: 10;
+}
+
+.loading {
+  color: $mgray;
+  font-family: $raleway;
+  font-size: 16px;
+  text-align: center;
 }

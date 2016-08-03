@@ -11,9 +11,9 @@
         method: 'GET',
         url: '/shout'
       }).then(function successCallback(response) {
-        console.log(response.data)
           vm.shouts = response.data;
         }, function errorCallback(response) {
+          alert('error loading shouts');
           console.warn(response);
         });
     }

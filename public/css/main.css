@@ -339,7 +339,7 @@ input[type="submit"] {
 
 .corner-plus {
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   top: -3px;
   left: 12px;
   color: white;
@@ -347,3 +347,9 @@ input[type="submit"] {
   font-weight: 500;
   font-family: "Raleway", tahoma, sans-serif;
   z-index: 10; }
+
+.loading {
+  color: #969696;
+  font-family: "Raleway", tahoma, sans-serif;
+  font-size: 16px;
+  text-align: center; }

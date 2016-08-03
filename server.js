@@ -1,41 +1,39 @@
-var express = require("express");
+var express = require('express');
 var app = express();
 
-var bp = require("body-parser");
+var bp = require('body-parser');
 
-var config = require(__dirname + "/config.js");
+var appRoot = process.cwd();
+
+var config = require(appRoot + '/config.js');
+
+var mongoose = require('mongoose');
+
+//replace the mongoose promise with global promise
+mongoose.Promise = global.Promise;
 
 //connect to the database
-var mongoose = require("mongoose");
-mongoose.Promise = global.Promise;
 mongoose.connect(config.database_url);
 
-//connect the model
-var Shout = require("./models/shout.js");
-
 //fixing the cross origin request error
-var cors = require("cors");
+var cors = require('cors');
 
 //enabling logger (disable in production)
-var morgan = require("morgan");
-
-//connecting views
-app.set("view engine", "ejs");
-app.set("views", "views");
+var morgan = require('morgan');
 
 //connecting global middleware
 app.use(cors());
-app.use(morgan("combined"));
+app.use(morgan('combined'));
 app.use(bp.urlencoded({extended: true}));
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(appRoot + '/public'));
 
 //connecting controllers
-app.use("/preview", require(__dirname + "/controllers/preview_controller.js"));
-app.use("/shout", require(__dirname + "/controllers/shout_controller.js"));
+app.use('/preview', require(appRoot + '/controllers/preview_controller.js'));
+app.use('/shout', require(appRoot + '/controllers/shout_controller.js'));
 
-//default route redirects to root
-app.use("*", function(req, res){
-	res.sendFile(__dirname + '/public/index.html');
+//default route sends index.html
+app.use('*', function(req, res){
+	res.sendFile(appRoot + '/public/index.html');
 });
 
-app.listen("3000");
+app.listen('3000');

@@ -1,44 +1,49 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
-var fs = require("fs");
+var fs = require('fs');
 
-var getImages = require(__dirname + "/../helpers/get_images.js");
-var memify = require(__dirname + "/../helpers/memify.js");
+var appRoot = process.cwd();
 
-router.get("/", function(req, res){
+var config = require(appRoot + '/config.js');
+
+var getImages = require(appRoot + '/helpers/get_images.js');
+var memify = require(appRoot + '/helpers/memify.js');
+
+router.get('/', function(req, res){
 	var id = new Date().valueOf().toString();
-	var fileName = id + ".png";
+	var fileName = id + '.png';
+	var tempFilePath = appRoot + '/public/img/temp/' + fileName;
 	var imagesData = {};
 	getImages(req.query.q, parseResponse);
 	
 	function parseResponse(err, data) {
 		if (err) {
-			console.error("Error: " + err);
+			console.error('Error: ' + err);
 			return res.status(500).send({Error: err});
 		}
 		imagesData = data;
-		var readStream = fs.createReadStream(__dirname + "/../public/img/blank.png");
-		var writeStream = fs.createWriteStream(__dirname + "/../public/img/" + fileName);
+		var readStream = fs.createReadStream(config.default_transparency_path);
+		var writeStream = fs.createWriteStream(tempFilePath);
 		readStream.pipe(writeStream);
-		writeStream.on("close", generateAndSendResponse);					
+		writeStream.on('close', generateAndSendResponse);					
 	}
 
 	function generateAndSendResponse(err) {
 		if (err) {
-			console.error("Error: " + err);
+			console.error('Error: ' + err);
 			return res.status(500).send({Error: err});
 		}
-		memify(__dirname + "/../public/img/" + fileName, req.query.q, sendResponse);	
+		memify(tempFilePath, req.query.q, sendResponse);	
 	}
 
 	function sendResponse(err) {
 		if (err) {
-			console.error("Error: " + err);
+			console.error('Error: ' + err);
 			return res.status(500).send({Error: err});
 		}
 		var response = {
-			transparency: "/img/" + fileName,
+			transparency: '/img/temp/' + fileName,
 			images: []
 		};
 		imagesData.forEach(function(item){
@@ -48,7 +53,7 @@ router.get("/", function(req, res){
 			});
 		});
 		res.json(response);
-		deleteFileTimer(__dirname + "/../public/img/" + fileName, 5000, function(err){
+		deleteFileTimer(tempFilePath, 5000, function(err){
 			if (err) {
 				return console.error(err);
 			}

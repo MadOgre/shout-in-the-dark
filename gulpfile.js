@@ -30,7 +30,7 @@ gulp.task('nodemon', function (cb) {
     .on('restart', function onRestart() {
       // reload connected browsers after a slight delay
       setTimeout(function reload() {
-        console.log("reloading...");
+        console.log('reloading...');
         browserSync.reload();
       }, BROWSER_SYNC_RELOAD_DELAY);
     });
@@ -38,11 +38,11 @@ gulp.task('nodemon', function (cb) {
 
 gulp.task('browser-sync', ['nodemon'], function () {
 
-    var browserPath = "";
-    if (process.env.COMPUTERNAME === "PHILLAPTOP") {
-        browserPath = "chrome.exe";
+    var browserPath = '';
+    if (process.env.COMPUTERNAME === 'PHILLAPTOP') {
+        browserPath = 'chrome.exe';
     } else {
-        browserPath = "google-chrome";
+        browserPath = 'google-chrome';
     }
 
   // for more browser-sync config options: http://www.browsersync.io/docs/options/
@@ -79,12 +79,12 @@ gulp.task('css', function () {
                 });
                 console.log(error.message);
                 browserSync.notify(error.message);
-                this.emit("end");
+                this.emit('end');
             }
         }))
         .pipe(sass({
             includePaths: ['scss'],
-            // outputStyle: "compressed",
+            // outputStyle: 'compressed',
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))

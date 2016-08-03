@@ -14,12 +14,12 @@ module.exports = function (path, text, callback) {
 		gm(path)
 		.geometry(640, 920, '^')
 		.crop(SHOUT_WIDTH, SHOUT_HEIGHT, cropBox.x, cropBox.y)
-		.fill("white")
-		.stroke("black")
+		.fill('white')
+		.stroke('black')
 		.strokeWidth(1)
-		.font("Verdana")
+		.font('Verdana')
 		.fontSize(50)
-		.drawText(0, 0, text, "Center")
+		.drawText(0, 0, text, 'Center')
 		.write(path, function (err) {
 		  if (!err) {
 		  	callback(null);

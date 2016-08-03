@@ -1,36 +1,37 @@
-var express = require("express");
+var express = require('express');
 var router = express.Router();
 
-var http = require("http");
-var https = require("https");
-var fs = require("fs");
-var url = require("url");
-var path = require("path");
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
+var url = require('url');
 
-var Shout = require(__dirname + "/../models/shout.js");
+var appRoot = process.cwd();
 
-var memify = require(__dirname + "/../helpers/memify.js");
+var Shout = require(appRoot + '/models/shout.js');
 
-router.post("/", function(req, res){
+var memify = require(appRoot + '/helpers/memify.js');
+
+router.post('/', function(req, res){
 	var urlObj = url.parse(req.body.imageUrl);
-	var protocol = "";
-	if (urlObj.protocol === "http:") {
+	var protocol = '';
+	if (urlObj.protocol === 'http:') {
 		protocol = http;
-	} else if (urlObj.protocol === "https:") {
+	} else if (urlObj.protocol === 'https:') {
 		protocol = https;
 	}
 	var id = new Date().valueOf().toString();
-	var fileName = id + ".png";
-	var filePath = __dirname + "/../public/img/shouts/" + fileName;
+	var fileName = id + '.png';
+	var filePath = appRoot + '/public/img/shouts/' + fileName;
 	var writeStream = fs.createWriteStream(filePath);
 	console.log(filePath);
 	protocol.get(req.body.imageUrl, function(res){
 		res.pipe(writeStream);
-	}).on("error", function(err){
+	}).on('error', function(err){
 		res.status(500).send({Error: err});
 		return console.error(err);
 	});
-	writeStream.on("close", createShout);
+	writeStream.on('close', createShout);
 	function createShout(err) {
 		if (err) {
 			res.status(500).send({Error: err});
@@ -45,22 +46,22 @@ router.post("/", function(req, res){
 		}
 		var shout = new Shout();
 		shout.bodyText = req.body.bodyText;
-		shout.imagePath = filePath;
+		shout.imagePath = 'img/shouts/' + fileName;
 		shout.save(sendResponse);
 	}
 	function sendResponse(err) {
 		if (err) {
-			res.json({result: "fail"});
+			res.json({result: 'fail'});
 		} else {
-			res.json({result: "success"});
+			res.json({result: 'success'});
 		}
 	}
 });
 
-router.get("/", function(req, res){
+router.get('/', function(req, res){
 	Shout.find(function(err, data){
 		if (err) {
-			res.json({error: "Something went wrong"});
+			res.json({error: 'Something went wrong'});
 		} else {
 			res.json(data);
 		}

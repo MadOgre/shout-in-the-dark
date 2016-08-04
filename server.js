@@ -18,15 +18,21 @@ mongoose.connect(config.database_url);
 //fixing the cross origin request error
 var cors = require('cors');
 
-//enabling logger (disable in production)
-var morgan = require('morgan');
+//enabling logger (disabled in production)
+if (app.get('env') === 'development') {
+	var morgan = require('morgan');
+}
 
 //connecting global middleware
 app.use(cors());
-app.use(morgan('combined'));
 app.use(bp.urlencoded({extended: true}));
 app.use(bp.json());
-app.use(express.static(appRoot + '/public'));
+
+//connecting conditional middleware
+if (app.get('env') === 'development') {
+	app.use(morgan('combined'));
+	app.use(express.static(appRoot + '/public'));
+}
 
 //connecting controllers
 app.use('/preview', require(appRoot + '/controllers/preview_controller.js'));

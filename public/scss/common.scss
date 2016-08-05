@@ -2,6 +2,12 @@
   width: 100vw;
 }
 
+.total-wrapper {
+  position: relative;
+  height: 100%;
+  padding-bottom: 100px;
+}
+
 .banner {
   width: 340px;
   margin: 10px auto;
@@ -52,4 +58,69 @@
   font-family: $raleway;
   font-size: 16px;
   text-align: center;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  background-color: $lgray;
+  box-shadow: 0px 0px 2px $dgray;
+  z-index: 15;
+  .main-button-deactive {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: desaturate($main, 50);
+    width: 80px;
+    height: 80px;
+    z-index: 16;
+    border: 4px solid $lgray;
+    box-shadow: 0 0 0px 2px $mgray;
+  }
+  .main-button, input {
+    cursor: pointer;
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background-color: $main;
+    width: 80px;
+    height: 80px;
+    z-index: 16;
+    border: 4px solid $lgray;
+    box-shadow: 0 0 0px 2px $mgray;
+    span {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translatex(-50%);
+      font-size: 44px;
+      color: white;
+      font-family: $raleway;
+    }
+    &:hover {
+      background-color: lighten($main, 5);
+      border: 4px solid $lgray;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .corner-plus, .corner {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+  #web-submit {
+    display: none;
+  }
 }

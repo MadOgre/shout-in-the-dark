@@ -12,8 +12,13 @@
 	<div class="bar2"></div>
 	<div class="bar3"></div>
 	<!-- <div class="bar3ish"></div> -->
-	<div class="inner">&pointint;</div>
+	<div class="inner">S</div>
 	<h1 class="loading">Loading</h1>
+</div>
+
+<div class="mobile-menu"  ng-if="!create.canPreview">
+  <div class="main-button-deactive">
+  </div>
 </div>
 
 <div class="container">
@@ -28,7 +33,11 @@
         <input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
         <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
       </div>
-      <input type="submit" value="Shout It Out" class="shoutsubmit" ng-if="create.canPreview">
+      <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">
+      <div class="mobile-menu" ng-if="create.canPreview">
+        <input type="submit" value="S" class="shoutsubmit">
+        </div>
+      </div>
     </form>
   </div>
   <div class="clearfix"></div>

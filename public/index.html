@@ -2,6 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Share Your Secrets</title>
   <link rel="stylesheet" href="/css/main.css">
 	<base href="/">
@@ -14,13 +15,15 @@
 	<script src="js/main.js"></script>
 </head>
 <body>
-	<div class="banner-wrapper">
-		<div class="banner">
-			<a href="/">
-				<img src="/img/common/shout-in-the-dark.png" />
-			</a>
+		<div class="total-wrapper">
+		<div class="banner-wrapper">
+			<div class="banner">
+				<a href="/">
+					<img src="/img/common/shout-in-the-dark.png" />
+				</a>
+			</div>
 		</div>
+		<ng-view></ng-view>
 	</div>
-	<ng-view></ng-view>
 </body>
 </html>

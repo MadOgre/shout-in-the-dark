@@ -33,6 +33,7 @@
         <input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
         <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
       </div>
+      <div class="clearfix"></div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">
       <div class="mobile-menu" ng-if="create.canPreview">
         <input type="submit" value="S" class="shoutsubmit">
@@ -40,6 +41,5 @@
       </div>
     </form>
   </div>
-  <div class="clearfix"></div>
   </div>
 </div>

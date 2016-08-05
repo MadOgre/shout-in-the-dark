@@ -114,6 +114,9 @@
       background-color: lighten($main, 5);
       border: 4px solid $lgray;
     }
+    &:focus {
+      outline: none;
+    }
   }
 }
 

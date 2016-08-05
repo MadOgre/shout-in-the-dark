@@ -1,8 +1,9 @@
 .preview-wrapper {
-  @include container;
-  @include span(2 of 5);
-  margin: 15px 10px;
-  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 320px;
   height: 460px;
   overflow: hidden;
@@ -25,4 +26,15 @@
     width: 320px;
     height: 460px;
   }
+}
+
+@media screen and (max-width: 768px) {
+	.preview-wrapper {
+    display: block;
+    position: relative;
+		margin: 0px auto;
+		width: 320px;
+    top: auto;
+    left: auto;
+	}
 }

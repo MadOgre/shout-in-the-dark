@@ -74,7 +74,7 @@ body {
   .preview-wrapper {
     display: block;
     position: relative;
-    margin: 0px auto;
+    margin: 15px auto;
     width: 320px;
     top: auto;
     left: auto; } }
@@ -129,7 +129,7 @@ body {
   .gallery-wrapper {
     display: block;
     position: relative;
-    margin: 20px auto;
+    margin: 0px auto;
     width: 268px;
     top: auto;
     left: auto; } }

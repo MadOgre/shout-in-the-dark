@@ -13,6 +13,11 @@
   margin: 10px auto;
 }
 
+.banner a img {
+  width: 340px;
+  height: auto;
+}
+
 .nav {
   position: absolute;
   display: inline;
@@ -113,6 +118,15 @@
 }
 
 @media screen and (max-width: 768px) {
+  .banner {
+    width: 300px;
+    margin: 10px auto;
+  }
+
+  .banner a img {
+    width: 300px;
+    height: auto;
+  }
   .corner-plus, .corner {
     display: none;
   }

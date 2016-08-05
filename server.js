@@ -17,8 +17,9 @@ var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 //connect to the database
-var database_url = config.database[environment];
-mongoose.connect(database_url);
+var database_url = config.database.url[environment];
+var credentials = config.database.credentials[environment];
+mongoose.connect(database_url, credentials);
 
 //fixing the cross origin request error
 var cors = require('cors');

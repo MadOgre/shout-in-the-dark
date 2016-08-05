@@ -1,7 +1,19 @@
 module.exports = {
 	database: {
-		development: 'mongodb://localhost/shout',
-		production: 'mongodb://shout:-Ip9)%+\\31-}13C@localhost/shout'
+		url: {
+			development: 'mongodb://localhost/shout',
+			production: 'mongodb://localhost/shout'			
+		},
+		credentials: {
+			production: {
+			  user: 'shout',
+			  pass: 'password',
+			  auth: {
+			    authdb: 'admin'
+				}					
+			},
+			development: {}
+		}
 	},
 	default_transparency_path: process.cwd() + '/public/img/common/transparency.png'
-}
+};

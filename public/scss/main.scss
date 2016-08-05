@@ -1,6 +1,7 @@
 // Colors
 $myColor: black;
 $main: #6388ff;
+$dmain: #204ddc;
 $lgray: #f5f5f5;
 $mgray: #969696;
 $dgray: #333;
@@ -39,3 +40,4 @@ $raleway: 'Raleway', tahoma, sans-serif;
 @import "form.scss";
 @import "shouts.scss";
 @import "common.scss";
+@import "loader.scss";

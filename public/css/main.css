@@ -360,3 +360,170 @@ input[type="submit"] {
   font-family: "Raleway", tahoma, sans-serif;
   font-size: 16px;
   text-align: center; }
+
+#loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 10; }
+
+.loading {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 36px;
+  font-weight: 100;
+  color: white; }
+  .loading:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    -webkit-animation: ellipsis steps(4, end) 2s infinite;
+            animation: ellipsis steps(4, end) 2s infinite;
+    content: "\2026";
+    width: 0px; }
+
+.inner {
+  color: #6388ff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 22px;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite; }
+
+.bar1 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+  color: #6388ff;
+  width: 100px;
+  height: 100px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-right: 15px solid #aaa;
+  background-color: transparent; }
+
+.bar2 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-direction: reverse;
+          animation-direction: reverse;
+  color: #6388ff;
+  width: 40px;
+  height: 40px;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  border-left: 2px solid #969696;
+  border-right: 2px solid #969696;
+  background-color: transparent; }
+
+.bar3 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  color: white;
+  height: 70px;
+  width: 70px;
+  border-top: 3px solid #6388ff;
+  border-bottom: 3px solid #6388ff;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  background-color: transparent;
+  -webkit-border-radius: 50%;
+          border-radius: 50%; }
+
+.bar3ish {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-animation-name: spin;
+          animation-name: spin;
+  -webkit-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  color: white;
+  height: 65px;
+  width: 65px;
+  border-bottom: 8px solid #6388ff;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  background-color: transparent;
+  -webkit-border-radius: 50%;
+          border-radius: 50%; }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(1turn);
+            transform: translate(-50%, -50%) rotate(1turn); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0); }
+  100% {
+    -webkit-transform: translate(-50%, -50%) rotate(1turn);
+            transform: translate(-50%, -50%) rotate(1turn); } }
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 20px; } }
+
+@keyframes ellipsis {
+  to {
+    width: 20px; } }

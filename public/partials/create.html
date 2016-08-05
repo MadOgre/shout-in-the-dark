@@ -6,6 +6,16 @@
     <div class="remaining">{{200 - create.search.length}}</div>
   </form>
 </div>
+
+<div id="loader" ng-if="create.isSearching">
+	<div class="bar1"></div>
+	<div class="bar2"></div>
+	<div class="bar3"></div>
+	<!-- <div class="bar3ish"></div> -->
+	<div class="inner">&pointint;</div>
+	<h1 class="loading">Loading</h1>
+</div>
+
 <div class="container">
   <div class="preview-wrapper" ng-if="create.canPreview">
     <img class="photo-overlay" ng-src="{{create.returnedImages[create.curr].full}}">

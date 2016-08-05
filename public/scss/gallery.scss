@@ -1,10 +1,10 @@
 .gallery-wrapper {
   user-select: none;
-  @include container;
-  @include span(3 of 5);
+  position: absolute;
+  top: 0px;
+  left: 340px;
   margin-top: 15px;
-  width: 780px;
-  position: relative;
+  max-width: 680px;
   input[type="radio"] {
     display: none;
     + label {
@@ -20,6 +20,7 @@
     }
   }
   .img-wrapper {
+    position: relative;
     float: left;
     height: $img;
     width: $img;
@@ -28,12 +29,12 @@
     border: $lborder;
     transition: border 0.3s;
   }
-  .img-wrapper-wrapper {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 672px;
-  }
+  // .img-wrapper-wrapper {
+  //   position: absolute;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   width: 672px;
+  // }
 }
 .selected {
   border: $dborder !important;
@@ -43,4 +44,27 @@
   display: block;
   margin: 0px auto;
   width: 300px;
+}
+
+
+@media screen and (min-width: 568px) and (max-width: 768px) {
+	.gallery-wrapper {
+    display: block;
+    position: relative;
+		margin: 20px auto;
+    width: 536px;
+    top: auto;
+    left: auto;
+	}
+}
+
+@media screen and (max-width: 567px) {
+  .gallery-wrapper {
+    display: block;
+    position: relative;
+		margin: 20px auto;
+    width: 268px;
+    top: auto;
+    left: auto;
+  }
 }

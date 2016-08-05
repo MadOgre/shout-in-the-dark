@@ -60,4 +60,3 @@ jspm_packages
 *.gif
 
 !public/img/common/*
-!public/img/shouts/*

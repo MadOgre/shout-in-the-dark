@@ -10,20 +10,19 @@
     vm.search = "";
     vm.transImg = "";
     vm.curr = 0;
-    vm.isSearching = false;
 
     vm.getImages = function() {
-      vm.isSearching = true;
+      vm.isLoading = true;
       $http({
         method: 'GET',
         url: '/preview?q=' + vm.search
       }).then(function successCallback(response) {
-          vm.isSearching = false;
+          vm.isLoading = false;
           vm.returnedImages = response.data.images;
           vm.transImg = response.data.transparency;
           vm.canPreview = true;
         }, function errorCallback(response) {
-          vm.isSearching = false;
+          vm.isLoading = false;
           console.warn(response);
         });
     }

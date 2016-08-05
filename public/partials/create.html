@@ -1,9 +1,14 @@
 <div class="form-wrapper">
   <h3 ng-if="!create.canPreview">Share Your Secrets</h3>
-  <form class="glow"  ng-submit="create.getImages()">
+  <form class="glow" ng-submit="create.getImages()" name="searchform">
     <input class="glow" type="text" placeholder="Enter Your Text" name="text" maxlength="200" ng-model="create.search" autofocus autocomplete="off">
-    <input type="submit" name="submit" value="Next">
+    <input type="submit" name="submit" value="Next" id="web-next">
     <div class="remaining">{{200 - create.search.length}}</div>
+    <div class="mobile-menu"  ng-if="!create.canPreview">
+      <div type="submit" class="main-button-deactive" ng-class="{'main-button'  : searchform.$dirty}" value="" ng-click="create.getImages()">
+        <i class="fa fa-search"></i>
+      </div>
+    </div>
   </form>
 </div>
 
@@ -16,10 +21,6 @@
 	<h1 class="loading">Loading</h1>
 </div>
 
-<div class="mobile-menu"  ng-if="!create.canPreview">
-  <div class="main-button-deactive">
-  </div>
-</div>
 
 <div class="container">
   <div class="preview-wrapper" ng-if="create.canPreview">
@@ -37,7 +38,6 @@
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">
       <div class="mobile-menu" ng-if="create.canPreview">
         <input type="submit" value="S" class="shoutsubmit">
-        </div>
       </div>
     </form>
   </div>

@@ -3,5 +3,22 @@
 }
 
 .container {
-  @include container(1120px);
+	margin: 0 auto;
+	max-width: 1020px;
+}
+
+// Tablet and Sideways Phone
+@media screen and (min-width: 568px) and (max-width: 768px) {
+	.container {
+		margin: 0 auto;
+		max-width: 559px;
+	}
+}
+
+// Phone Screen
+@media screen and (max-width: 567px) {
+	.container {
+		margin: 0 auto;
+		max-width: 320px;
+	}
 }

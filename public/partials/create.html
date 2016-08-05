@@ -1,11 +1,12 @@
 <div class="form-wrapper">
   <h3 ng-if="!create.canPreview">Share Your Secrets</h3>
+  {{create.focused}}
   <form class="glow" ng-submit="create.getImages()" name="searchform">
-    <input class="glow" type="text" placeholder="Enter Your Text" name="text" maxlength="200" ng-model="create.search" autofocus autocomplete="off">
+    <input class="glow" type="text" ng-focus="create.focused = true" ng-blur="create.focused = false" placeholder="Enter Your Text" name="text" maxlength="200" ng-model="create.search" autofocus autocomplete="off">
     <input type="submit" name="submit" value="Next" id="web-next">
     <div class="remaining">{{200 - create.search.length}}</div>
-    <div class="mobile-menu"  ng-if="!create.canPreview">
-      <div type="submit" class="main-button-deactive" ng-class="{'main-button'  : searchform.$dirty}" value="" ng-click="create.getImages()">
+    <div class="mobile-menu"  ng-if="!create.canPreview || create.focused">
+      <div type="submit" class="main-button-deactive" ng-class="{'main-button' : searchform.$dirty}" value="" ng-click="create.getImages()">
         <i class="fa fa-search"></i>
       </div>
     </div>
@@ -36,7 +37,7 @@
       </div>
       <div class="clearfix"></div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">
-      <div class="mobile-menu" ng-if="create.canPreview">
+      <div class="mobile-menu" ng-if="create.canPreview && !create.focused">
         <input type="submit" value="S" class="shoutsubmit">
       </div>
     </form>

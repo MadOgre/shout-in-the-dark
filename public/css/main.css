@@ -7,43 +7,6 @@
     content: " ";
     display: block;
     clear: both; }
-  head {
-    display: block;
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    z-index: 999;
-    color: #333;
-    background: rgba(255, 255, 255, 0.25); }
-  head:before {
-    content: "|||";
-    display: block;
-    padding: 5px 10px;
-    font-family: sans-serif;
-    font-size: 16px;
-    font-weight: bold; }
-  head:hover {
-    background: rgba(255, 255, 255, 0.5);
-    color: red; }
-  head:hover ~ .wrapper,
-  head:hover ~ body .wrapper {
-    position: relative; }
-    head:hover ~ .wrapper:before,
-    head:hover ~ body .wrapper:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      content: " ";
-      z-index: 998;
-      background-image: -webkit-gradient(linear, left top, right top, from(rgba(102, 102, 255, 0.25)), to(rgba(179, 179, 255, 0.25)));
-      background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-size: 25%;
-      background-origin: content-box;
-      background-clip: content-box;
-      background-position: left top; }
 
 .container {
   max-width: 1120px;
@@ -53,25 +16,6 @@
     content: " ";
     display: block;
     clear: both; }
-  head:hover ~ .container,
-  head:hover ~ body .container {
-    position: relative; }
-    head:hover ~ .container:before,
-    head:hover ~ body .container:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      content: " ";
-      z-index: 998;
-      background-image: -webkit-gradient(linear, left top, right top, from(rgba(102, 102, 255, 0.25)), to(rgba(179, 179, 255, 0.25)));
-      background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-size: 25%;
-      background-origin: content-box;
-      background-clip: content-box;
-      background-position: left top; }
 
 body {
   padding: 0;
@@ -112,25 +56,6 @@ body {
     content: " ";
     display: block;
     clear: both; }
-  head:hover ~ .preview-wrapper,
-  head:hover ~ body .preview-wrapper {
-    position: relative; }
-    head:hover ~ .preview-wrapper:before,
-    head:hover ~ body .preview-wrapper:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      content: " ";
-      z-index: 998;
-      background-image: -webkit-gradient(linear, left top, right top, from(rgba(102, 102, 255, 0.25)), to(rgba(179, 179, 255, 0.25)));
-      background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-size: 25%;
-      background-origin: content-box;
-      background-clip: content-box;
-      background-position: left top; }
   .preview-wrapper img {
     position: absolute;
     left: 0;
@@ -166,25 +91,6 @@ body {
     content: " ";
     display: block;
     clear: both; }
-  head:hover ~ .gallery-wrapper,
-  head:hover ~ body .gallery-wrapper {
-    position: relative; }
-    head:hover ~ .gallery-wrapper:before,
-    head:hover ~ body .gallery-wrapper:before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      content: " ";
-      z-index: 998;
-      background-image: -webkit-gradient(linear, left top, right top, from(rgba(102, 102, 255, 0.25)), to(rgba(179, 179, 255, 0.25)));
-      background-image: -webkit-linear-gradient(left, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-      background-size: 25%;
-      background-origin: content-box;
-      background-clip: content-box;
-      background-position: left top; }
   .gallery-wrapper input[type="radio"] {
     display: none; }
     .gallery-wrapper input[type="radio"] + label {
@@ -362,7 +268,7 @@ input[type="submit"] {
   text-align: center; }
 
 #loader {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);

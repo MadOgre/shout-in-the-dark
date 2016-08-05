@@ -7,7 +7,7 @@
   </form>
 </div>
 
-<div id="loader" ng-if="create.isSearching">
+<div id="loader" ng-if="create.isLoading">
 	<div class="bar1"></div>
 	<div class="bar2"></div>
 	<div class="bar3"></div>
@@ -29,7 +29,6 @@
         <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
       </div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" ng-if="create.canPreview">
-      <p class="loading" ng-if="create.isLoading">Loading...</p>
     </form>
   </div>
   <div class="clearfix"></div>

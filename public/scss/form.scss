@@ -52,6 +52,14 @@ input[type="submit"] {
 }
 
 @media (max-width: 768px) {
+  input[name="searchform"].ng-dirty {
+    span, i {
+      color: red;
+    }
+  }
+  #web-next {
+    display: none;
+  }
   input[type="text"] {
     width: 70vw;
   }

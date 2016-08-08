@@ -24,6 +24,7 @@
     max-width: 320px; } }
 
 body {
+  -webkit-tap-highlight-color: transparent;
   padding: 0;
   margin: 0; }
 

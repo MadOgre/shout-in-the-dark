@@ -15,7 +15,7 @@ var appRoot = process.cwd();
 
 var Shout = require(appRoot + '/models/shout.js');
 
-var memify = require(appRoot + '/helpers/memify.js');
+// var memify = require(appRoot + '/helpers/memify.js');
 
 router.post('/', function(req, res){
 	// var urlObj = url.parse(req.body.imageUrl);

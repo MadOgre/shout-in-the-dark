@@ -5,7 +5,7 @@
     <input type="submit" name="submit" value="Next" id="web-next">
     <div class="remaining">{{200 - create.search.length}}</div>
     <div class="mobile-menu"  ng-if="!create.canPreview || create.focused">
-      <div type="submit" class="main-button-deactive" ng-class="{'main-button' : searchform.$dirty}" value="" ng-click="create.getImages()">
+      <div class="main-button-deactive" ng-class="{'main-button' : searchform.$dirty}" ng-click="create.getImages()">
         <i class="fa fa-search"></i>
       </div>
     </div>

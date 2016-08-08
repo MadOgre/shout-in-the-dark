@@ -2,6 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 var fs = require('fs');
+var bp = require('body-parser');
+
+router.use(bp.urlencoded({extended: true}));
+router.use(bp.json());
 
 var appRoot = process.cwd();
 

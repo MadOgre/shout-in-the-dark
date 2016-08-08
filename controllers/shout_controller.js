@@ -6,6 +6,11 @@ var https = require('https');
 var fs = require('fs');
 var url = require('url');
 
+var bp = require('body-parser');
+
+router.use(bp.urlencoded({extended: true}));
+router.use(bp.json());
+
 var appRoot = process.cwd();
 
 var Shout = require(appRoot + '/models/shout.js');

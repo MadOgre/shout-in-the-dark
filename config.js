@@ -1,4 +1,19 @@
 module.exports = {
-	database_url: 'mongodb://madogre:warcraft@ds139665.mlab.com:39665/shout', //'mongodb://localhost/shout',
+	database: {
+		url: {
+			development: 'mongodb://localhost/shout',
+			production: 'mongodb://localhost/shout'			
+		},
+		credentials: {
+			production: {
+			  user: 'shout',
+			  pass: 'password',
+			  auth: {
+			    authdb: 'admin'
+				}					
+			},
+			development: {}
+		}
+	},
 	default_transparency_path: process.cwd() + '/public/img/common/transparency.png'
-}
+};

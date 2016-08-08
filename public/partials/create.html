@@ -23,16 +23,20 @@
 
 
 <div class="container">
-  <div class="preview-wrapper" ng-if="create.canPreview">
+  <canvas id="preview-canvas" width="640" height="920" style="display: none"></canvas>
+  <canvas id="finished-canvas" width="640" height="920" style="display: none"></canvas>
+  <div id="dataHolder"></div>
+  <div class="preview-wrapper" ng-show="create.canPreview">
+    <img width="320" height="460" class="canvas" id="canvasImage"/>
     <img class="photo-overlay" ng-src="{{create.returnedImages[create.curr].full}}">
-    <img class="text-image" ng-src="{{create.transImg}}">
   </div>
+
   <div class="gallery-wrapper">
     <div class="img-wrapper-wrapper">
     <form class="radio-gallery" ng-submit="create.postShout()">
       <div class="img-wrapper" ng-repeat="(index, image) in create.returnedImages"  ng-class="{'selected' : index == create.curr}">
-        <input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr">
-        <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item"></label>
+        <input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr" ng-click="create.textifyImage()">
+        <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item" id="img-{{index}}"></label>
       </div>
       <div class="clearfix"></div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">

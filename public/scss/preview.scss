@@ -22,19 +22,19 @@
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
   }
-  .text-image {
-    width: 320px;
-    height: 460px;
+  .canvas {
+    z-index: 11;
   }
 }
 
 @media screen and (max-width: 768px) {
-	.preview-wrapper {
+  .preview-wrapper {
     display: block;
     position: relative;
-	  margin: 15px auto;
-		width: 320px;
+    margin: 15px auto;
+    width: 320px;
     top: auto;
     left: auto;
-	}
+  }
+
 }

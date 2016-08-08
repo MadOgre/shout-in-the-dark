@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  angular.module('app').controller('Creating', ['$http', '$location', Creating]);
+  angular.module('app').controller('Creating', ['$http', '$location', '$window', 'textify', Creating]);
 
-  function Creating($http, $location) {
+  function Creating($http, $location, $window, textify) {
     var vm = this;
     vm.canPreview = false;
     vm.isLoading = false;
@@ -10,6 +10,7 @@
     vm.search = "";
     vm.transImg = "";
     vm.curr = 0;
+    vm.thisImage = "";
 
     vm.getImages = function() {
       vm.isLoading = true;
@@ -21,6 +22,8 @@
           vm.returnedImages = response.data.images;
           vm.transImg = response.data.transparency;
           vm.canPreview = true;
+          textify.drawPreview(vm.search);
+          vm.thisImage = vm.textifyImage();
         }, function errorCallback(response) {
           vm.isLoading = false;
           console.warn(response);
@@ -33,24 +36,31 @@
 
     vm.postShout = function() {
       vm.isLoading = true;
-      $http({
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        url: '/shout',
-        data: {bodyText: vm.search, imageUrl: vm.returnedImages[vm.curr].full}
-      }).then(function successCallback(response) {
-          vm.isLoading = false;
-          if(response.status == 200) {
-            $location.path('/');
-          }
-      }, function errorCallback(response) {
-        vm.isLoading = false;
-        alert('something went wrong');
-        console.warn(response);
-      });
+      $window.open(angular.element('#dataHolder').data("foo"));
+      vm.isLoading = false;
+      // $http({
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json'
+      //   },
+      //   url: '/shout',
+      //   data: {bodyText: vm.search, imageUrl: vm.returnedImages[vm.curr].full}
+      // }).then(function successCallback(response) {
+      //     vm.isLoading = false;
+      //     if(response.status == 200) {
+      //       $location.path('/');
+      //     }
+      // }, function errorCallback(response) {
+      //   vm.isLoading = false;
+      //   alert('something went wrong');
+      //   console.warn(response);
+      // });
     }
+
+    vm.textifyImage = function() {
+        vm.thisImage = textify.drawFull(vm.returnedImages[vm.curr].full, vm.search);
+    }
+
   }
 
 }());

@@ -66,9 +66,8 @@ body {
     -webkit-transform: translateX(-50%) translateY(-50%);
         -ms-transform: translateX(-50%) translateY(-50%);
             transform: translateX(-50%) translateY(-50%); }
-  .preview-wrapper .text-image {
-    width: 320px;
-    height: 460px; }
+  .preview-wrapper .canvas {
+    z-index: 11; }
 
 @media screen and (max-width: 768px) {
   .preview-wrapper {
@@ -388,7 +387,7 @@ input[type="submit"] {
   background-color: rgba(0, 0, 0, 0.8);
   min-width: 100%;
   min-height: 100%;
-  z-index: 10; }
+  z-index: 14; }
 
 .loading {
   position: absolute;

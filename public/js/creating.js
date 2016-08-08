@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  angular.module('app').controller('Creating', ['$http', '$location', Creating]);
+  angular.module('app').controller('Creating', ['$http', '$location', '$window', 'textify', Creating]);
 
-  function Creating($http, $location) {
+  function Creating($http, $location, $window, textify) {
     var vm = this;
     vm.canPreview = false;
     vm.isLoading = false;
@@ -21,6 +21,8 @@
           vm.returnedImages = response.data.images;
           vm.transImg = response.data.transparency;
           vm.canPreview = true;
+          textify.drawPreview(vm.search);
+          vm.textifyImage();
         }, function errorCallback(response) {
           vm.isLoading = false;
           console.warn(response);
@@ -39,7 +41,7 @@
           'Content-Type': 'application/json'
         },
         url: '/shout',
-        data: {bodyText: vm.search, imageUrl: vm.returnedImages[vm.curr].full}
+        data: {bodyText: vm.search, imageUrl: angular.element('#dataHolder').data("imageData")}
       }).then(function successCallback(response) {
           vm.isLoading = false;
           if(response.status == 200) {
@@ -51,6 +53,11 @@
         console.warn(response);
       });
     }
+
+    vm.textifyImage = function() {
+        textify.drawFull(vm.returnedImages[vm.curr].full, vm.search);
+    }
+
   }
 
 }());

@@ -60,25 +60,18 @@
         img.setAttribute('crossOrigin', 'anonymous');
         var intv = setInterval(function(){
           if(img.complete) {
-
             clearInterval(intv);
             cb(img);
           }
         }, 100);
-        // img.onload = cb(img);
-        img.src = imgSrc;
+        img.src = '/proxy/' + imgSrc;
       }
       // Define Canvas
       var canvas = document.getElementById('finished-canvas');
       var ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Define Image
-      var img = new Image();
-      img.setAttribute('crossOrigin', 'anonymous');
-      img.src = imgSrc;
-
-      loadImages(imgSrc, function() {
+      loadImages(imgSrc, function(img) {
         /**
          * To Work On:
          * Centering/Scaling Image like in Preview
@@ -86,7 +79,7 @@
         var hRatio = canvas.width / img.width    ;
         var vRatio = canvas.height / img.height  ;
         var ratio  = Math.max( hRatio, vRatio )
-        ctx.drawImage(img, 0,0, img.width, img.height, img.width-canvas.width, 0, img.width*ratio, img.height*ratio);
+        ctx.drawImage(img, 0,0, img.width, img.height, 0, 0, img.width*ratio, img.height*ratio);
 
         // Adds text
         vm.drawText(canvas, ctx, text);

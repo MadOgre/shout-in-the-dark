@@ -35,25 +35,23 @@
 
     vm.postShout = function() {
       vm.isLoading = true;
-      $window.open(angular.element('#dataHolder').data("imageData"));
-      vm.isLoading = false;
-      // $http({
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json'
-      //   },
-      //   url: '/shout',
-      //   data: {bodyText: vm.search, imageUrl: vm.returnedImages[vm.curr].full}
-      // }).then(function successCallback(response) {
-      //     vm.isLoading = false;
-      //     if(response.status == 200) {
-      //       $location.path('/');
-      //     }
-      // }, function errorCallback(response) {
-      //   vm.isLoading = false;
-      //   alert('something went wrong');
-      //   console.warn(response);
-      // });
+      $http({
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        url: '/shout',
+        data: {bodyText: vm.search, imageUrl: angular.element('#dataHolder').data("imageData")}
+      }).then(function successCallback(response) {
+          vm.isLoading = false;
+          if(response.status == 200) {
+            $location.path('/');
+          }
+      }, function errorCallback(response) {
+        vm.isLoading = false;
+        alert('something went wrong');
+        console.warn(response);
+      });
     }
 
     vm.textifyImage = function() {

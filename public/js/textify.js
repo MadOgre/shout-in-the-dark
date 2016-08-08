@@ -11,6 +11,8 @@
         var words = text.split(' ');
         var line = '';
         var formatted = [];
+
+        // Format user input into line breaks that fit the shout
         for(var n = 0; n < words.length; n++) {
           var testLine = line + words[n] + ' ';
           var metrics = context.measureText(testLine);
@@ -24,7 +26,11 @@
           }
         }
         formatted.push(line);
+
+        // Centers content based on number of lines in message
         y -= ((formatted.length - 1) / 2) * lineHeight - (lineHeight/4);
+
+        // Draws text from formatted string array
         for (var i = 0; i < formatted.length; i++) {
           context.fillText(formatted[i], x, y);
           context.strokeText(formatted[i], x, y);
@@ -72,32 +78,22 @@
       img.setAttribute('crossOrigin', 'anonymous');
       img.src = imgSrc;
 
-      // // Draw image
-      // if(img.complete) {
-      //   ctx.drawImage(img, 0, 0, img.width,    img.height,
-      //                      0, 0, canvas.width, canvas.height);
-      //   vm.drawText(canvas, ctx, text);
-      //   vm.toSend = canvas.toDataURL("image/jpeg", 0.5);
-      //
-      // } else {
-      //     img.onload = function () {
-      //       ctx.drawImage(img, 0, 0, img.width,    img.height,
-      //                          0, 0, canvas.width, canvas.height);
-      //       vm.drawText(canvas, ctx, text);
-      //       vm.toSend = canvas.toDataURL('image/jpeg', 0.5);
-      //     };
-      // }
       loadImages(imgSrc, function() {
+        /**
+         * To Work On:
+         * Centering/Scaling Image like in Preview
+         */
         var hRatio = canvas.width / img.width    ;
         var vRatio = canvas.height / img.height  ;
         var ratio  = Math.max( hRatio, vRatio )
         ctx.drawImage(img, 0,0, img.width, img.height, img.width-canvas.width, 0, img.width*ratio, img.height*ratio);
-        // ctx.drawImage(img, 0, 0, img.width,    img.height,
-        //                    0, 0, canvas.width, canvas.height);
+
+        // Adds text
         vm.drawText(canvas, ctx, text);
+
+        // Store ImageURL into a div on DOM
         vm.toSend = canvas.toDataURL('image/jpeg', 0.5);
-        angular.element('#dataHolder').data("foo", vm.toSend);
-        return vm.toSend;
+        angular.element('#dataHolder').data("imageData", vm.toSend);
       });
     }
 
@@ -107,6 +103,7 @@
       var ctx = canvas.getContext('2d');
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      // Draw text on blank canvas, set preview in DOM
       vm.drawText(canvas, ctx, text);
       document.getElementById('canvasImage').src = canvas.toDataURL();
     }

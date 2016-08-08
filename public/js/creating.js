@@ -10,7 +10,6 @@
     vm.search = "";
     vm.transImg = "";
     vm.curr = 0;
-    vm.thisImage = "";
 
     vm.getImages = function() {
       vm.isLoading = true;
@@ -23,7 +22,7 @@
           vm.transImg = response.data.transparency;
           vm.canPreview = true;
           textify.drawPreview(vm.search);
-          vm.thisImage = vm.textifyImage();
+          vm.textifyImage();
         }, function errorCallback(response) {
           vm.isLoading = false;
           console.warn(response);
@@ -36,7 +35,7 @@
 
     vm.postShout = function() {
       vm.isLoading = true;
-      $window.open(angular.element('#dataHolder').data("foo"));
+      $window.open(angular.element('#dataHolder').data("imageData"));
       vm.isLoading = false;
       // $http({
       //   method: 'POST',
@@ -58,7 +57,7 @@
     }
 
     vm.textifyImage = function() {
-        vm.thisImage = textify.drawFull(vm.returnedImages[vm.curr].full, vm.search);
+        textify.drawFull(vm.returnedImages[vm.curr].full, vm.search);
     }
 
   }

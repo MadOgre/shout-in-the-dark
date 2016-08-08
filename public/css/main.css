@@ -41,7 +41,7 @@ body {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
-.arrow-wrapper, .preview-wrapper, .gallery-wrapper, .remaining {
+.arrow-wrapper, .preview-wrapper, .gallery-wrapper, .remaining, .mobile-menu {
   -webkit-user-select: none;
   /* Chrome all / Safari all */
   -moz-user-select: none;

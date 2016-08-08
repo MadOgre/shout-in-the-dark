@@ -1,3 +1,8 @@
+<a href="/">
+  <div class="corner"></div>
+  <div class="corner-icon"><i class="fa fa-home"></i></div>
+</a>
+
 <div class="form-wrapper">
   <h3 ng-if="!create.canPreview">Share Your Secrets</h3>
   <form class="glow" ng-submit="create.getImages()" name="searchform">
@@ -5,6 +10,8 @@
     <input type="submit" name="submit" value="Next" id="web-next">
     <div class="remaining">{{200 - create.search.length}}</div>
     <div class="mobile-menu"  ng-if="!create.canPreview || create.focused">
+      <a href="/" class="link-item" id="homebtn"><span class="fa fa-home"></span></a>
+      <a href="/" class="link-item" id="messagesbtn"><span class="fa fa-comments"></span></a>
       <div class="main-button-deactive" ng-class="{'main-button' : searchform.$dirty}" ng-click="create.getImages()">
         <i class="fa fa-search"></i>
       </div>
@@ -42,6 +49,8 @@
       <div class="clearfix"></div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">
       <div class="mobile-menu" ng-if="create.canPreview && !create.focused">
+        <a href="/" class="link-item" id="homebtn"><span class="fa fa-home"></span></a>
+        <a href="/" class="link-item" id="messagesbtn"><span class="fa fa-comments"></span></a>
         <input type="submit" value="S" class="shoutsubmit">
       </div>
     </form>

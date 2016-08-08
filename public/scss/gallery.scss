@@ -49,7 +49,7 @@
 
 @media screen and (min-width: 568px) and (max-width: 768px) {
 	.gallery-wrapper {
-    display: block;
+    display: none;
     position: relative;
 		margin: 20px auto;
     width: 536px;
@@ -60,7 +60,7 @@
 
 @media screen and (max-width: 567px) {
   .gallery-wrapper {
-    display: block;
+    display: none;
     position: relative;
 		margin: 0px auto;
     width: 268px;

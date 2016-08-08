@@ -41,6 +41,41 @@ body {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important; }
 
+.arrow-wrapper, .preview-wrapper, .gallery-wrapper, .remaining, .mobile-menu {
+  -webkit-user-select: none;
+  /* Chrome all / Safari all */
+  -moz-user-select: none;
+  /* Firefox all */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Likely future */ }
+
+.arrow-wrapper {
+  display: none;
+  margin-top: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 460px; }
+  .arrow-wrapper .arrow {
+    cursor: pointer;
+    position: absolute;
+    font-size: 80px;
+    top: 50%;
+    -webkit-transform: translateY(-55%);
+        -ms-transform: translateY(-55%);
+            transform: translateY(-55%);
+    color: white;
+    text-shadow: 0 0 10px black; }
+    .arrow-wrapper .arrow[id="leftarrow"] {
+      left: -20px;
+      z-index: 12; }
+    .arrow-wrapper .arrow[id="rightarrow"] {
+      right: -20px;
+      z-index: 12; }
+
 .preview-wrapper {
   display: inline-block;
   margin-top: 15px;
@@ -71,6 +106,8 @@ body {
     z-index: 11; }
 
 @media screen and (max-width: 768px) {
+  .arrow-wrapper {
+    display: block; }
   .preview-wrapper {
     display: block;
     position: relative;
@@ -118,7 +155,7 @@ body {
 
 @media screen and (min-width: 568px) and (max-width: 768px) {
   .gallery-wrapper {
-    display: block;
+    display: none;
     position: relative;
     margin: 20px auto;
     width: 536px;
@@ -127,7 +164,7 @@ body {
 
 @media screen and (max-width: 567px) {
   .gallery-wrapper {
-    display: block;
+    display: none;
     position: relative;
     margin: 0px auto;
     width: 268px;
@@ -337,6 +374,10 @@ input[type="submit"] {
     font-size: 24px;
     color: white;
     z-index: 17; }
+    .mobile-menu i[id="shoutbtn"] {
+      font-size: 22px;
+      font-family: "Raleway", tahoma, sans-serif;
+      font-style: normal; }
   .mobile-menu .main-button-deactive {
     pointer-events: none;
     cursor: default;

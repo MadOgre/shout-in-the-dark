@@ -58,6 +58,19 @@
         textify.drawFull(vm.returnedImages[vm.curr].full, vm.search);
     }
 
+    vm.nextImg = function() {
+      if(vm.curr < vm.returnedImages.length) {
+        vm.curr += 1;
+        vm.textifyImage();
+      }
+    }
+    vm.prevImg = function() {
+      if(vm.curr > 0) {
+        vm.curr -= 1;
+        vm.textifyImage();
+      }
+    }
+
   }
 
 }());

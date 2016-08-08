@@ -33,6 +33,11 @@
   <canvas id="preview-canvas" width="640" height="920" style="display: none"></canvas>
   <canvas id="finished-canvas" width="640" height="920" style="display: none"></canvas>
   <div id="dataHolder"></div>
+
+  <div class="arrow-wrapper" ng-show="create.canPreview">
+    <div class="arrow" id="leftarrow"><span class="fa fa-angle-left" ng-click="create.prevImg()" ng-hide="create.curr === 0"></span></div>
+    <div class="arrow" id="rightarrow"><span class="fa fa-angle-right" ng-click="create.nextImg()" ng-hide="create.curr === create.returnedImages.length - 1"></span></div>
+  </div>
   <div class="preview-wrapper" ng-show="create.canPreview">
     <img width="320" height="460" class="canvas" id="canvasImage"/>
     <img class="photo-overlay" ng-src="{{create.returnedImages[create.curr].full}}">
@@ -48,12 +53,13 @@
       </div>
       <div class="clearfix"></div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">
-      <div class="mobile-menu" ng-if="create.canPreview && !create.focused">
-        <a href="/" class="link-item" id="homebtn"><span class="fa fa-home"></span></a>
-        <a href="/" class="link-item" id="messagesbtn"><span class="fa fa-comments"></span></a>
-        <input type="submit" value="S" class="shoutsubmit">
-      </div>
     </form>
   </div>
+  </div>
+
+  <div class="mobile-menu" ng-if="create.canPreview && !create.focused">
+    <a href="/" class="link-item" id="homebtn"><span class="fa fa-home"></span></a>
+    <a href="/" class="link-item" id="messagesbtn"><span class="fa fa-comments"></span></a>
+    <div class="main-button" ng-click="create.postShout()"><i id="shoutbtn">S</i></div>
   </div>
 </div>

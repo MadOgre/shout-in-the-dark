@@ -37,6 +37,7 @@
       <div class="img-wrapper" ng-repeat="(index, image) in create.returnedImages"  ng-class="{'selected' : index == create.curr}">
         <input type="radio" name="gallery" value="{{index}}" id="thumb-{{index}}" ng-model="create.curr" ng-click="create.textifyImage()">
         <label for="thumb-{{index}}"><img ng-src="{{image.thumb}}" class="gallery-item" id="img-{{index}}"></label>
+        <img ng-src="{{image.full}}" style="display:none">
       </div>
       <div class="clearfix"></div>
       <input type="submit" value="Shout It Out" class="shoutsubmit" id="web-submit" ng-if="create.canPreview">

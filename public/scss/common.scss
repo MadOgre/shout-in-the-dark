@@ -46,13 +46,13 @@
   z-index: 9;
   // transform: rotate(0deg);
 }
-.corner-plus {
+.corner-icon {
   cursor: pointer;
   position: fixed;
-  top: -3px;
+  top: 10px;
   left: 12px;
   color: white;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 500;
   font-family: $raleway;
   z-index: 10;
@@ -75,7 +75,24 @@
   background-color: $lgray;
   box-shadow: 0px 0px 2px $dgray;
   z-index: 15;
-  span, i {
+  .link-item {
+    position: fixed;
+    bottom: 7px;
+    color: $mgray;
+    font-size: 30px;
+    &[id="messagesbtn"] {
+      left: 25%;
+      transform: translateX(-50%);
+    }
+    &[id="homebtn"] {
+      left: 75%;
+      transform: translateX(-50%);
+    }
+    &:hover {
+      color: $dgray;
+    }
+  }
+  i {
     position: fixed;
     bottom: 24px;
     left: 50%;
@@ -137,7 +154,7 @@
     width: 300px;
     height: auto;
   }
-  .corner-plus, .corner {
+  .corner-icon, .corner {
     display: none;
   }
 

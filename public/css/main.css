@@ -282,13 +282,13 @@ input[type="submit"] {
   border-left: 70px solid #6388ff;
   z-index: 9; }
 
-.corner-plus {
+.corner-icon {
   cursor: pointer;
   position: fixed;
-  top: -3px;
+  top: 10px;
   left: 12px;
   color: white;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 500;
   font-family: "Raleway", tahoma, sans-serif;
   z-index: 10; }
@@ -310,7 +310,24 @@ input[type="submit"] {
   -webkit-box-shadow: 0px 0px 2px #333;
           box-shadow: 0px 0px 2px #333;
   z-index: 15; }
-  .mobile-menu span, .mobile-menu i {
+  .mobile-menu .link-item {
+    position: fixed;
+    bottom: 7px;
+    color: #969696;
+    font-size: 30px; }
+    .mobile-menu .link-item[id="messagesbtn"] {
+      left: 25%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%); }
+    .mobile-menu .link-item[id="homebtn"] {
+      left: 75%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%); }
+    .mobile-menu .link-item:hover {
+      color: #333; }
+  .mobile-menu i {
     position: fixed;
     bottom: 24px;
     left: 50%;
@@ -374,7 +391,7 @@ input[type="submit"] {
   .banner a img {
     width: 300px;
     height: auto; }
-  .corner-plus, .corner {
+  .corner-icon, .corner {
     display: none; }
   .mobile-menu {
     display: block; }

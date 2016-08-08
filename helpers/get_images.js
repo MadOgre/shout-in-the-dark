@@ -10,6 +10,6 @@ module.exports = function (query, callback) {
 	// 		callback(error);
 	// 	}
 	// );
-	var data = require(process.cwd() + '/fixtures/mock_data2.js');
+	var data = require(process.cwd() + '/fixtures/mock_data3.js');
 	callback(null, data);
 }

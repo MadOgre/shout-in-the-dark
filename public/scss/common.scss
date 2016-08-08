@@ -100,6 +100,11 @@
     font-size: 24px;
     color: white;
     z-index: 17;
+    &[id="shoutbtn"] {
+      font-size: 22px;
+      font-family: $raleway;
+      font-style: normal;
+    }
   }
   .main-button-deactive {
     pointer-events: none;

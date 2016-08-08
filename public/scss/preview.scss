@@ -1,3 +1,30 @@
+.arrow-wrapper {
+  display: none;
+  margin-top: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 460px;
+  .arrow{
+    cursor: pointer;
+    position: absolute;
+    font-size: 80px;
+    top: 50%;
+    transform: translateY(-55%);
+    color: white;
+    text-shadow: 0 0 10px black;
+    &[id="leftarrow"] {
+      left: -20px;
+      z-index: 12;
+    }
+    &[id="rightarrow"] {
+      right: -20px;
+      z-index: 12;
+    }
+  }
+}
+
 .preview-wrapper {
   display: inline-block;
   margin-top: 15px;
@@ -28,6 +55,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .arrow-wrapper {
+    display: block;
+  }
+  
   .preview-wrapper {
     display: block;
     position: relative;

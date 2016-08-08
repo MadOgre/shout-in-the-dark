@@ -1,8 +1,6 @@
 var express = require('express');
 var app = express();
 
-var bp = require('body-parser');
-
 var appRoot = process.cwd();
 
 var port = process.env.NODE_PORT || 3000;
@@ -26,8 +24,6 @@ var cors = require('cors');
 
 //connecting global middleware
 app.use(cors());
-app.use(bp.urlencoded({extended: true}));
-app.use(bp.json());
 
 //connecting conditional middleware
 require('./environment')(app);

@@ -54,6 +54,7 @@ router.post('/', function(req, res){
 		shout.bodyText = req.body.bodyText;
 		//shout.imagePath = 'img/shouts/' + fileName;
 		shout.imagePath = req.body.imageUrl;
+		shout.createdAt = new Date();
 		shout.save(sendResponse);
 	}
 	function sendResponse(err) {
@@ -66,7 +67,7 @@ router.post('/', function(req, res){
 });
 
 router.get('/', function(req, res){
-	Shout.find(function(err, data){
+	Shout.find().sort({createdAt: "desc"}).exec(function(err, data){
 		if (err) {
 			res.json({error: 'Something went wrong'});
 		} else {

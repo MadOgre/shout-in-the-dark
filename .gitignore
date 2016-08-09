@@ -60,3 +60,5 @@ jspm_packages
 *.gif
 
 !public/img/common/*
+
+config.js

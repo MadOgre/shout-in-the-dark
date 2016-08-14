@@ -23,7 +23,7 @@ router.post('/', function(req, res){
 	shout.imagePath = req.body.imageUrl;
 	shout.createdAt = new Date();
 	shout.save(sendResponse);
-	
+
 	function sendResponse(err) {
 		if (err) {
 			res.json({result: 'fail'});
@@ -33,14 +33,18 @@ router.post('/', function(req, res){
 	}
 });
 
-router.get('/', cache(5 * 60), function(req, res){
+router.get('/', function(req, res){
+	if (!req.get('Referrer')) {
+		res.redirect('/');
+	} else {
 	Shout.find().sort({createdAt: "desc"}).exec(function(err, data){
-		if (err) {
-			res.json({error: 'Something went wrong'});
-		} else {
-			res.json(data);
-		}
-	});
+			if (err) {
+				res.json({error: 'Something went wrong'});
+			} else {
+				res.json(data);
+			}
+		});
+	}
 });
 
 module.exports = router;

@@ -33,7 +33,7 @@ router.post('/', function(req, res){
 	}
 });
 
-router.get('/', function(req, res){
+router.get('/', cache(5 * 60), function(req, res){
 	if (!req.get('Referrer')) {
 		res.redirect('/');
 	} else {

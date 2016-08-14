@@ -33,8 +33,9 @@ router.post('/', function(req, res){
 	}
 });
 
-router.get('/', cache(5 * 60), function(req, res){
-	if (!req.get('Referrer')) {
+router.get('/', function(req, res){
+	console.log(req.headers.caller);
+	if (req.headers.caller !== 'angular') {
 		res.redirect('/');
 	} else {
 	Shout.find().sort({createdAt: "desc"}).exec(function(err, data){

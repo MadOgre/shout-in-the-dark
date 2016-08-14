@@ -9,6 +9,9 @@
     vm.getShouts = function() {
       $http({
         method: 'GET',
+        headers: {
+          'Caller': 'angular'
+        },
         url: '/shout'
       }).then(function successCallback(response) {
           vm.shouts = response.data;

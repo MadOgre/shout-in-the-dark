@@ -9,12 +9,14 @@ router.use(bp.json());
 
 var appRoot = process.cwd();
 
+var cache = require(appRoot + '/middleware/caching.js');
+
 var config = require(appRoot + '/config.js');
 
 var getImages = require(appRoot + '/helpers/get_images.js');
 // var memify = require(appRoot + '/helpers/memify.js');
 
-router.get('/', function(req, res){
+router.get('/', cache(5 * 60), function(req, res){
 	// var id = new Date().valueOf().toString();
 	// var fileName = id + '.png';
 	// var tempFilePath = appRoot + '/public/img/temp/' + fileName;

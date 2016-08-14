@@ -13,6 +13,8 @@ router.use(bp.json());
 
 var appRoot = process.cwd();
 
+var cache = require(appRoot + '/middleware/caching.js');
+
 var Shout = require(appRoot + '/models/shout.js');
 
 // var memify = require(appRoot + '/helpers/memify.js');
@@ -66,7 +68,7 @@ router.post('/', function(req, res){
 	}
 });
 
-router.get('/', function(req, res){
+router.get('/', cache(5 * 60), function(req, res){
 	Shout.find().sort({createdAt: "desc"}).exec(function(err, data){
 		if (err) {
 			res.json({error: 'Something went wrong'});

@@ -17,48 +17,13 @@ var cache = require(appRoot + '/middleware/caching.js');
 
 var Shout = require(appRoot + '/models/shout.js');
 
-// var memify = require(appRoot + '/helpers/memify.js');
-
 router.post('/', function(req, res){
-	// var urlObj = url.parse(req.body.imageUrl);
-	// var protocol = '';
-	// if (urlObj.protocol === 'http:') {
-	// 	protocol = http;
-	// } else if (urlObj.protocol === 'https:') {
-	// 	protocol = https;
-	// }
-	// var id = new Date().valueOf().toString();
-	// var fileName = id + '.png';
-	// var filePath = appRoot + '/public/img/shouts/' + fileName;
-	// var writeStream = fs.createWriteStream(filePath);
-	// protocol.get(req.body.imageUrl, function(res){
-	// 	res.pipe(writeStream);
-	// }).on('error', function(err){
-	// 	res.status(500).send({Error: err});
-	// 	return console.error(err);
-	// });
-	// writeStream.on('close', createShout);
-	// function createShout(err) {
-	// 	if (err) {
-	// 		res.status(500).send({Error: err});
-	// 		return console.error(err);
-	// 	}
-	// 	// memify(filePath, req.body.bodyText, saveShout);
-	// 	saveShout(null)
-	// }
-	saveShout(null);
-	function saveShout(err) {
-		if (err) {
-			res.status(500).send({Error: err});
-			return console.error(err);
-		}
-		var shout = new Shout();
-		shout.bodyText = req.body.bodyText;
-		//shout.imagePath = 'img/shouts/' + fileName;
-		shout.imagePath = req.body.imageUrl;
-		shout.createdAt = new Date();
-		shout.save(sendResponse);
-	}
+	var shout = new Shout();
+	shout.bodyText = req.body.bodyText;
+	shout.imagePath = req.body.imageUrl;
+	shout.createdAt = new Date();
+	shout.save(sendResponse);
+	
 	function sendResponse(err) {
 		if (err) {
 			res.json({result: 'fail'});

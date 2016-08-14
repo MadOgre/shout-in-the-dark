@@ -29,10 +29,6 @@
         });
     }
 
-    vm.submitShout = function() {
-      alert("Yay!");
-    }
-
     vm.postShout = function() {
       vm.isLoading = true;
       $http({

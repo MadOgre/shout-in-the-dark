@@ -4,7 +4,14 @@
 
   function Main($http) {
     var vm = this;
-    var shouts = [];
+    vm.shouts = [];
+
+    vm.currentPage = 0;
+
+    vm.nextPage = function() {
+      if (vm.shouts.length < 1) return;
+      vm.getShouts();
+    }
 
     vm.getShouts = function() {
       $http({
@@ -12,9 +19,11 @@
         headers: {
           'Caller': 'angular'
         },
-        url: '/shout'
+        url: '/shout?p=' + (vm.currentPage)
       }).then(function successCallback(response) {
-          vm.shouts = response.data;
+          vm.currentPage++;
+          vm.shouts = vm.shouts.concat(response.data);
+          console.log(vm.shouts);
         }, function errorCallback(response) {
           alert('error loading shouts');
           console.warn(response);

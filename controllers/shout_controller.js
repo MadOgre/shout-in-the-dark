@@ -34,11 +34,10 @@ router.post('/', function(req, res){
 });
 
 router.get('/', function(req, res){
-	console.log(req.headers.caller);
 	if (req.headers.caller !== 'angular') {
 		res.redirect('/');
 	} else {
-	Shout.find().sort({createdAt: "desc"}).exec(function(err, data){
+	Shout.find().sort({createdAt: "desc"}).skip(req.query.p * 10).limit(10).exec(function(err, data){
 			if (err) {
 				res.json({error: 'Something went wrong'});
 			} else {

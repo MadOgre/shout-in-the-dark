@@ -56,7 +56,11 @@ body {
   margin-top: 15px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  z-index: 100;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
   width: 320px;
   height: 460px; }
   .arrow-wrapper .arrow {
@@ -70,10 +74,10 @@ body {
     color: white;
     text-shadow: 0 0 10px black; }
     .arrow-wrapper .arrow[id="leftarrow"] {
-      left: -20px;
+      left: 0px;
       z-index: 12; }
     .arrow-wrapper .arrow[id="rightarrow"] {
-      right: -20px;
+      right: 0px;
       z-index: 12; }
 
 .preview-wrapper {

@@ -360,7 +360,7 @@ input[type="submit"] {
           box-shadow: 0px 0px 2px #333;
   z-index: 15; }
   .mobile-menu .link-item {
-    position: fixed;
+    position: absolute;
     bottom: 7px;
     color: #969696;
     font-size: 30px; }
@@ -377,7 +377,7 @@ input[type="submit"] {
     .mobile-menu .link-item:hover {
       color: #333; }
   .mobile-menu i {
-    position: fixed;
+    position: absolute;
     bottom: 24px;
     left: 50%;
     -webkit-transform: translatex(-50%);
@@ -393,7 +393,7 @@ input[type="submit"] {
   .mobile-menu .main-button-deactive {
     pointer-events: none;
     cursor: default;
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     left: 50%;
     -webkit-transform: translateX(-50%);
@@ -412,7 +412,7 @@ input[type="submit"] {
   .mobile-menu .main-button, .mobile-menu input {
     pointer-events: auto;
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     bottom: 10px;
     left: 50%;
     -webkit-transform: translateX(-50%);

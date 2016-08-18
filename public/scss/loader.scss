@@ -32,6 +32,7 @@
 	transform: translate(-50%, -50%);
   font-family: $raleway;
 	font-size: 22px;
+	transform: translate(-50%, -50%) rotate(0);
 	animation-name: spin;
 	animation-duration: 3s;
 	animation-iteration-count: infinite;
@@ -41,6 +42,7 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	transform: translate(-50%, -50%) rotate(0);
 	animation-name: spin;
 	animation-duration: 1.5s;
 	animation-iteration-count: infinite;
@@ -61,6 +63,7 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	transform: translate(-50%, -50%) rotate(0);
 	animation-name: spin;
 	animation-duration: 2s;
 	animation-iteration-count: infinite;
@@ -81,6 +84,7 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	transform: translate(-50%, -50%) rotate(0);
 	animation-name: spin;
 	animation-duration: 3s;
 	animation-iteration-count: infinite;
@@ -99,6 +103,7 @@
 	position: absolute;
 	left: 50%;
 	top: 50%;
+	transform: translate(-50%, -50%) rotate(0);
 	animation-name: spin;
 	animation-duration: 3s;
 	animation-iteration-count: infinite;

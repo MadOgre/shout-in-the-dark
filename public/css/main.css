@@ -130,12 +130,14 @@ body {
   left: 340px;
   margin-top: 15px;
   max-width: 680px; }
-  .gallery-wrapper input[type="radio"] + label {
-    height: 124px;
-    cursor: pointer; }
-    .gallery-wrapper input[type="radio"] + label img {
+  .gallery-wrapper input[type="radio"] {
+    display: none; }
+    .gallery-wrapper input[type="radio"] + label {
       height: 124px;
-      width: auto; }
+      cursor: pointer; }
+      .gallery-wrapper input[type="radio"] + label img {
+        height: 124px;
+        width: auto; }
   .gallery-wrapper .img-wrapper {
     position: relative;
     float: left;

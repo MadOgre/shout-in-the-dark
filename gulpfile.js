@@ -20,7 +20,7 @@ gulp.task('nodemon', function (cb) {
     script: 'server.js',
 
     // watch core server file(s) that require server restart on change
-    watch: ['server.js']
+    watch: ['**/*.js', '!public/js/**/*']
   })
     .on('start', function onStart() {
       // ensure start only got called once
@@ -96,7 +96,7 @@ gulp.task('bs-reload', function () {
   browserSync.reload();
 });
 
-gulp.task('default', ['browser-sync'], function () {
+gulp.task('default', ['css', 'js', 'browser-sync'], function () {
   gulp.watch('public/**/*.js',   ['js', browserSync.reload]);
   gulp.watch('public/**/*.scss',  ['css']);
   gulp.watch('public/**/*.html', ['bs-reload']);

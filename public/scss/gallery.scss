@@ -46,6 +46,15 @@
   width: 300px;
 }
 
+.gallery-item {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
 
 @media screen and (min-width: 568px) and (max-width: 768px) {
 	.gallery-wrapper {

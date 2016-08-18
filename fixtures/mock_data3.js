@@ -1,8 +1,8 @@
 module.exports = [
 	{
-		url: 'http://blogs-images.forbes.com/kenrapoza/files/2013/02/byd-e6-electric-car-002.jpg',
+		url: 'http://media-cache-ec0.pinimg.com/200x/85/09/07/850907dd2b88f1451e2221d5c2b173cb.jpg',
 		thumbnail: {
-			url: 'http://ts1.mm.bing.net/th?id=OIP.M311d593415af737cac1e1559108c997fo0&pid=15.1'
+			url: 'http://media-cache-ec0.pinimg.com/200x/85/09/07/850907dd2b88f1451e2221d5c2b173cb.jpg'
 		}
 	},
 	{

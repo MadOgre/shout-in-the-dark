@@ -72,14 +72,41 @@
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       loadImages(imgSrc, function(img) {
-        /**
-         * To Work On:
-         * Centering/Scaling Image like in Preview
-         */
-        var hRatio = canvas.width / img.width    ;
-        var vRatio = canvas.height / img.height  ;
-        var ratio  = Math.max( hRatio, vRatio )
-        ctx.drawImage(img, 0,0, img.width, img.height, 0, 0, img.width*ratio, img.height*ratio);
+
+        function getDim(img) {
+          var dim = {
+            width: img.width,
+            height: img.height
+          }
+          var ratio = canvas.height / dim.height;
+          dim.height *= ratio;
+          dim.width *= ratio;
+          if (dim.width < canvas.width) {
+            ratio = canvas.width / dim.width;
+            dim.width *= ratio;
+            dim.height *= ratio;
+          }
+          return dim;
+        }
+
+        function getCoords(dim) {
+          var result = {
+            x: 0,
+            y: 0
+          };
+          if (dim.width !== canvas.width) {
+            result.x = canvas.width / 2 - dim.width / 2;
+          }
+          if (dim.height !== canvas.width) {
+            result.y = canvas.height / 2 - dim.height / 2;
+          }
+          return result;
+        }
+
+        var dimensions = getDim(img);
+        var coords = getCoords(dimensions);
+
+        ctx.drawImage(img, 0,0, img.width, img.height, coords.x, coords.y, dimensions.width, dimensions.height);
 
         // Adds text
         vm.drawText(canvas, ctx, text);

@@ -12,21 +12,23 @@
     vm.curr = 0;
 
     vm.getImages = function() {
-      vm.isLoading = true;
-      $http({
-        method: 'GET',
-        url: '/preview?q=' + vm.search
-      }).then(function successCallback(response) {
-          vm.isLoading = false;
-          vm.returnedImages = response.data.images;
-          vm.transImg = response.data.transparency;
-          vm.canPreview = true;
-          textify.drawPreview(vm.search);
-          vm.textifyImage();
-        }, function errorCallback(response) {
-          vm.isLoading = false;
-          console.warn(response);
-        });
+      if (!vm.isLoading) {
+        vm.isLoading = true;
+        $http({
+          method: 'GET',
+          url: '/preview?q=' + vm.search
+        }).then(function successCallback(response) {
+            vm.isLoading = false;
+            vm.returnedImages = response.data.images;
+            vm.transImg = response.data.transparency;
+            vm.canPreview = true;
+            textify.drawPreview(vm.search);
+            vm.textifyImage();
+          }, function errorCallback(response) {
+            vm.isLoading = false;
+            console.warn(response);
+          });
+      }
     }
 
     vm.postShout = function() {

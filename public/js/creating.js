@@ -20,7 +20,6 @@
         }).then(function successCallback(response) {
             vm.isLoading = false;
             vm.returnedImages = response.data.images;
-            vm.transImg = response.data.transparency;
             vm.canPreview = true;
             textify.drawPreview(vm.search);
             vm.textifyImage();

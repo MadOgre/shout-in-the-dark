@@ -1,14 +1,16 @@
 (function() {
   'use strict';
-  angular.module('app').controller('Main', ['$http', Main]);
+  angular.module('app').controller('Main', ['$http', 'scaler', Main]);
 
-  function Main($http) {
+  function Main($http, scaler) {
     var vm = this;
     vm.shouts = [];
 
     vm.currentPage = 0;
 
     var gettingShouts = false;
+
+    vm.getRatio = scaler.getRatio;
 
     vm.nextPage = function() {
       if (vm.shouts.length < 1) return;

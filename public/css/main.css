@@ -11,7 +11,10 @@
 .container {
   position: relative;
   margin: 0 auto;
-  max-width: 1020px; }
+  max-width: 1020px;
+  -webkit-transform-origin: 50% 0%;
+      -ms-transform-origin: 50% 0%;
+          transform-origin: 50% 0%; }
 
 @media screen and (min-width: 568px) and (max-width: 768px) {
   .container {
@@ -21,7 +24,9 @@
 @media screen and (max-width: 567px) {
   .container {
     margin: 0 auto;
-    max-width: 320px; } }
+    width: 320px;
+    padding: 6px;
+    padding-bottom: 45px; } }
 
 body {
   -webkit-tap-highlight-color: transparent;

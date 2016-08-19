@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  angular.module('app').controller('Creating', ['$http', '$location', '$window', 'textify', Creating]);
+  angular.module('app').controller('Creating', ['$http', '$location', '$window', 'textify', 'scaler', Creating]);
 
-  function Creating($http, $location, $window, textify) {
+  function Creating($http, $location, $window, textify, scaler) {
     var vm = this;
     vm.canPreview = false;
     vm.isLoading = false;
@@ -10,6 +10,8 @@
     vm.search = "";
     vm.transImg = "";
     vm.curr = 0;
+
+    vm.getRatio = scaler.getRatio;
 
     vm.getImages = function() {
       if (!vm.isLoading) {

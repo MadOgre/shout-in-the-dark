@@ -39,7 +39,7 @@ gulp.task('nodemon', function (cb) {
 gulp.task('browser-sync', ['nodemon'], function () {
 
     var browserPath = '';
-    if (process.env.COMPUTERNAME === 'PHILLAPTOP') {
+    if (process.env.COMPUTERNAME === 'PHILLAPTOP' || process.env.COMPUTERNAME === 'VENATOR') {
         browserPath = 'chrome.exe';
     } else {
         browserPath = 'google-chrome';

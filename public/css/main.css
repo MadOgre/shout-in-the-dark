@@ -489,6 +489,9 @@ input[type="submit"] {
           transform: translate(-50%, -50%);
   font-family: "Raleway", tahoma, sans-serif;
   font-size: 22px;
+  -webkit-transform: translate(-50%, -50%) rotate(0);
+      -ms-transform: translate(-50%, -50%) rotate(0);
+          transform: translate(-50%, -50%) rotate(0);
   -webkit-animation-name: spin;
           animation-name: spin;
   -webkit-animation-duration: 3s;
@@ -502,6 +505,9 @@ input[type="submit"] {
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0);
+      -ms-transform: translate(-50%, -50%) rotate(0);
+          transform: translate(-50%, -50%) rotate(0);
   -webkit-animation-name: spin;
           animation-name: spin;
   -webkit-animation-duration: 1.5s;
@@ -529,6 +535,9 @@ input[type="submit"] {
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0);
+      -ms-transform: translate(-50%, -50%) rotate(0);
+          transform: translate(-50%, -50%) rotate(0);
   -webkit-animation-name: spin;
           animation-name: spin;
   -webkit-animation-duration: 2s;
@@ -556,6 +565,9 @@ input[type="submit"] {
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0);
+      -ms-transform: translate(-50%, -50%) rotate(0);
+          transform: translate(-50%, -50%) rotate(0);
   -webkit-animation-name: spin;
           animation-name: spin;
   -webkit-animation-duration: 3s;
@@ -579,6 +591,9 @@ input[type="submit"] {
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(0);
+      -ms-transform: translate(-50%, -50%) rotate(0);
+          transform: translate(-50%, -50%) rotate(0);
   -webkit-animation-name: spin;
           animation-name: spin;
   -webkit-animation-duration: 3s;

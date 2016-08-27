@@ -1,8 +1,8 @@
 (function() {
   'use strict';
-  angular.module('app').controller('Creating', ['$http', '$location', '$window', 'textify', Creating]);
+  angular.module('app').controller('Creating', ['$http', '$location', 'textify', Creating]);
 
-  function Creating($http, $location, $window, textify) {
+  function Creating($http, $location, textify) {
     var vm = this;
     vm.canPreview = false;
     vm.isLoading = false;
@@ -67,7 +67,6 @@
         vm.textifyImage();
       }
     }
-
   }
 
 }());
